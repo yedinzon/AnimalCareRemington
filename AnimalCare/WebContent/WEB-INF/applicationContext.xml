@@ -17,14 +17,15 @@
         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
  
   
- <context:component-scan base-package="co.org.animalcare" />  
+ <context:component-scan base-package="co.org.animalcare" />    
+  
 
 
- 	<bean class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" id="entityManagerFactory">
+ <bean class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" id="entityManagerFactory">
 
         <property name="persistenceUnitName" value="MyPersistenceUnit"/>
 
-  	</bean>
+    </bean>
 
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
 

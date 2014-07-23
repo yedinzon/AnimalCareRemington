@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+    <p:panel id="panel" header="Acceso">
+ 
+        <p:messages id="msgs" />
+ 
+        <h:panelGrid columns="3" cellpadding="5">
+            <p:outputLabel for="usuario" value="Usuario: " />
+            <p:inputText id="usuario" value="" required="true" label="Usuario">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="usuario" display="icon" />
+
+            <h:outputLabel for="clave" value="Contraseña: " />
+		    <p:password id="clave" value="" label="Contraseña" required="true" />
+		    <p:message for="clave" id="msgClave" display="icon" />
+ 
+        </h:panelGrid>
+ 
+        <p:commandButton value="Save" update="panel" icon="ui-icon-check" />
+    </p:panel>
+</h:form>
+</h:body>
+</html>
