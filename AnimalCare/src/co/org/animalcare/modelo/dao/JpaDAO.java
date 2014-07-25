@@ -15,7 +15,7 @@ public abstract class JpaDAO< T extends Serializable > {
 	   public void setClazz( final Class< T > clazzToSet ){
 	      this.clazz = clazzToSet;
 	   }
-	   public T findOne( final Long id ){
+	   public T findOne( final int id ){
 	      return entityManager.find( clazz, id );
 	   }
 	   @SuppressWarnings("unchecked")
