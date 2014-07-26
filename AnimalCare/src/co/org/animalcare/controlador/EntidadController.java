@@ -39,7 +39,7 @@ public class EntidadController implements Serializable {
     private String telefono;
     private String email;
     private String clave;
-    private String estado;
+    private String estado="EN ESPERA";
 
 	public EntidadService getEntidadService() {
 		return entidadService;
@@ -163,7 +163,7 @@ public class EntidadController implements Serializable {
 	public void guardarEntidad(ActionEvent event) {
 		
 		EntidadDTO ent = new EntidadDTO();
-		ent.setCodigo(codigo);
+		//ent.setCodigo(codigo);
 		ent.setNombre(nombre);
 		ent.setCiudad(ciudad);
 		ent.setDireccion(direccion);

@@ -107,7 +107,7 @@ public class DonanteController implements Serializable {
 	public void guardarDonante(ActionEvent event) {
 		
 		DonanteDTO d = new DonanteDTO();
-		d.setCodigo(codigo);
+		//d.setCodigo(codigo);
 		d.setNombres(nombres);
 		d.setApellidos(apellidos);
 		d.setEmail(email);
