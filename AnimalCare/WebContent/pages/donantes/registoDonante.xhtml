@@ -11,10 +11,11 @@
 <h:head>
 </h:head>
 <h:body>
-<h:form>
+<h:form  id="formulario" style="margin-left:auto;margin-right:auto;width:50%">
+
     <p:panel id="panel" header="Registro de Donante">
  		
-        <p:messages id="msgs"/>
+        <p:messages id="msgs" />
  
         <h:panelGrid columns="3" cellpadding="5">
             <p:outputLabel for="nombres" value="Nombres:" />
@@ -32,15 +33,26 @@
             <p:message for="apellidos" id="msgApellidos" display="icon" />
             
             <h:outputLabel for="email1" value="Email: *" />
-	        <p:inputText id="email1" value="#{donanteController.email}" match="email2" label="Email" required="true" />
-	 
+	        <p:inputText id="email1" value="#{donanteController.email}" match="email2" label="Email" required="true">
+	 			<f:validateLength minimum="2" />
+                <p:ajax update="msgEmail1" event="keyup" />
+            </p:inputText>
+            <p:message for="email1" id="msgEmail1" display="icon" />
+            
 	        <h:outputLabel for="email2" value="Confirmar Email: *" />
-	        <p:inputText id="email2" label="Confirmar Email" required="true">
-	        	<p:ajax update="email2" event="keyup" />
-	        </p:inputText>
-	        <h:outputLabel for="clave" value="Contraseña: " />
-        	<p:password id="clave" value="#{donanteController.clave}" />
- 			
+	        <p:inputText id="email2" value="#{donanteController.email}" label="Confirmar Email" required="true">
+	 			<f:validateLength minimum="2" />
+                <p:ajax update="msgEmail2" event="keyup" />
+            </p:inputText>
+            <p:message for="email2" id="msgEmail2" display="icon" />
+            
+            <h:outputLabel for="clave" value="Contraseña: *" />
+	        <p:password id="clave" label="Contraseña" value="#{donanteController.clave}" required="true">
+	 			<f:validateLength minimum="1" />
+                <p:ajax update="msgClave" event="keyup" />
+            </p:password>
+            <p:message for="clave" id="msgClave" display="icon" />            
+            
         </h:panelGrid>
  
         <p:commandButton value="Guardar" update="panel" actionListener="#{donanteController.guardarDonante}" icon="ui-icon-check" />
