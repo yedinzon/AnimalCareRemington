@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+html,body{
+	height: 100%;
+}
+
+#page{	
+	min-height:100%;
+}
+
+#footer{
+	position: relative;
+	margin-top: -100px;
+	height: 100px;
+	clear: both;
+	background-color: #2191c0;
+	text-align: center;
+}

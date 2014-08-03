@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<div align="center" style="heigth: 50%; width: 100%">
+				<p:galleria value="#{imagesView.images}" var="image"
+					panelWidth="900" panelHeight="500" showCaption="true"
+					frameHeight="50" frameWidth="50">
+					<p:graphicImage value="/images/index/#{image}"
+						alt="Noticia acerca de  #{image}" title="#{image}" height="100%"
+						width="100%" />
+				</p:galleria>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

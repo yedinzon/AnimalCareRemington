@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    }
+</script>
+</h:head>
+<body>
+<div>
+	<h:form>
+		<p:growl id="messages" />
+
+		<p:menubar>
+			<p:menuitem value="Animal Care"
+				url="/pages/index.xhtml" />
+
+			<p:menuitem value="Inicio" url="/pages/index.xhtml" />
+
+			<p:submenu label="Servicios">
+				<p:menuitem value="Donar" url="#" />
+				<p:menuitem value="Apadrinar" url="#" />
+				<p:menuitem value="Adoptar" url="#" />
+			</p:submenu>
+
+			<p:menuitem value="Animales" url="#" />
+
+			<p:menuitem value="Entidades" url="#" />
+
+			<f:facet name="options">
+				<p:inputText id="buscar" style="margin-right:10px" />
+				<p:watermark for="buscar" value="Buscar..." />
+				<p:commandButton type="button" value="Buscar" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+</div>
+<div align="right">
+	
+	<h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="Iniciar sesión">
+        <h:outputText value="Iniciar Sesión" />
+    </h:outputLink>
+ 
+    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+ 
+    <p:dialog header="Acceso" widgetVar="dlg" resizable="false">
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="username" value="Usuario:" />
+            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="usuario" />
+ 
+            <h:outputLabel for="password" value="Contraseña:" />
+            <p:password id="password" value="#{userLoginView.password}" required="true" label="clave" />
+ 
+            <f:facet name="footer">
+                <p:commandButton value="Ingresar" update="growl" actionListener="#{userLoginView.login}"
+                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+            </f:facet>  
+        </h:panelGrid>
+    </p:dialog>	
+		
+	<a href="/AnimalCare/pages/donantes/registroDonante.xhtml" style="color: black;font-size: 15px;">Registrarse</a>
+</div>
+</body>
+
+</html>

@@ -2,101 +2,115 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	
+
 </h:head>
 <h:body>
-<h:form>
-    <p:panel id="panel" header="Registro de Entidad">
- 
-        <p:messages id="msgs" />
- 
-        <h:panelGrid columns="3" cellpadding="5">
-            <p:outputLabel for="nombre" value="Nombre:" />
-            <p:inputText id="nombre" value="#{entidadController.nombre}" required="true" label="Nombre">
-                <f:validateLength minimum="2" />
-            </p:inputText>
-            <p:message for="nombre" display="icon" />
- 
-            <p:outputLabel for="pais" value="Pais: " />
-            <p:inputText id="pais" label="Pais" required="true">
-                <f:validateLength minimum="1" />
-                <p:ajax update="msgPais" event="keyup" />
-            </p:inputText>
-            <p:message for="pais" id="msgPais" display="icon" />
-            
-            <p:outputLabel for="departamento" value="Departamento: " />
-            <p:inputText id="departamento" label="Departamento" required="true">
-                <f:validateLength minimum="1" />
-                <p:ajax update="msgDepartamento" event="keyup" />
-            </p:inputText>
-            <p:message for="departamento" id="msgDepartamento" display="icon" />
-            
-            <p:outputLabel for="ciudad" value="Ciudad: " />
-            <p:inputText id="ciudad" value="#{entidadController.ciudad}" label="Ciudad" required="true">
-                <f:validateLength minimum="1" />
-                <p:ajax update="msgCiudad" event="keyup" />
-            </p:inputText>
-            <p:message for="ciudad" id="msgCiudad" display="icon" />
-            
-            <p:outputLabel for="direccion" value="Direccion: " />
-            <p:inputText id="direccion" value="#{entidadController.direccion}" label="Direccion" required="true">
-                <f:validateLength minimum="2" />
-                <p:ajax update="msgDireccion" event="keyup" />
-            </p:inputText>
-            <p:message for="direccion" id="msgDireccion" display="icon" />
-            
-            <h:outputText value="Categoria:" />
-            <p:selectOneButton value="#{entidadController.categoria}">
-            <f:selectItem itemLabel="Prueba Categoria" itemValue="1" />
-            <f:selectItem itemLabel="Veterinaria" itemValue="2" />
-            <f:selectItem itemLabel="Otros" itemValue="3" />
-        	</p:selectOneButton>
-            
-            <p:outputLabel for="nombreContacto" value="Nombre Contacto" />
-            <p:inputText id="nombreContacto" value="#{entidadController.nombreContacto}" label="Nombre Contacto" required="true">
-                <f:validateLength minimum="2" />
-                <p:ajax update="msgNombreContacto" event="keyup" />
-            </p:inputText>
-            <p:message for="nombreContacto" id="msgNombreContacto" display="icon" />
-            
-            <p:outputLabel for="apellido" value="Apellido:  " />
-            <p:inputText id="apellido" value="#{entidadController.apellidoContacto}" label="Apellido" required="true">
-                <f:validateLength minimum="2" />
-                <p:ajax update="msgApellido" event="keyup" />
-            </p:inputText>
-            <p:message for="apellido" id="msgApellido" display="icon" />
-            
-            <p:outputLabel for="telefono" value="Telefono: " />
-            <p:inputText id="telefono" value="#{entidadController.telefono}" label="Telefono" required="true">
-                <f:validateLength minimum="2" />
-                <p:ajax update="msgTelefono" event="keyup" />
-            </p:inputText>
-            <p:message for="telefono" id="msgTelefono" display="icon" />
-            
-            <h:outputLabel for="email" value="Email: " />
-            <p:inputText id="email" value="#{entidadController.email}">
-                <!--  <f:validator validatorId="custom.emailValidator" />-->
-            </p:inputText>
-            <p:message for="email" display="tooltip" />
-            <h:outputText value="" />
-            
-            <h:outputLabel for="clave" value="Contraseña: " />
-		    <p:password id="clave" value="#{entidadController.clave}" label="Contraseña" required="true" />
-		    <p:message for="clave" id="msgClave" display="icon" />
-            
-            
- 
-        </h:panelGrid>
- 		
-        <p:commandButton value="Save" update="panel" actionListener="#{entidadController.guardarEntidad}" icon="ui-icon-check" />
-    </p:panel>
-</h:form>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<p:panel id="panel" header="Registro de Entidad">
 
+					<p:messages id="msgs" />
+
+					<h:panelGrid columns="3" cellpadding="5">
+						<p:outputLabel for="nombre" value="Nombre:" />
+						<p:inputText id="nombre" value="#{entidadController.nombre}"
+							required="true" label="Nombre">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="nombre" display="icon" />
+
+						<p:outputLabel for="pais" value="Pais: " />
+						<p:inputText id="pais" label="Pais" required="true">
+							<f:validateLength minimum="1" />
+							<p:ajax update="msgPais" event="keyup" />
+						</p:inputText>
+						<p:message for="pais" id="msgPais" display="icon" />
+
+						<p:outputLabel for="departamento" value="Departamento: " />
+						<p:inputText id="departamento" label="Departamento"
+							required="true">
+							<f:validateLength minimum="1" />
+							<p:ajax update="msgDepartamento" event="keyup" />
+						</p:inputText>
+						<p:message for="departamento" id="msgDepartamento" display="icon" />
+
+						<p:outputLabel for="ciudad" value="Ciudad: " />
+						<p:inputText id="ciudad" value="#{entidadController.ciudad}"
+							label="Ciudad" required="true">
+							<f:validateLength minimum="1" />
+							<p:ajax update="msgCiudad" event="keyup" />
+						</p:inputText>
+						<p:message for="ciudad" id="msgCiudad" display="icon" />
+
+						<p:outputLabel for="direccion" value="Direccion: " />
+						<p:inputText id="direccion" value="#{entidadController.direccion}"
+							label="Direccion" required="true">
+							<f:validateLength minimum="2" />
+							<p:ajax update="msgDireccion" event="keyup" />
+						</p:inputText>
+						<p:message for="direccion" id="msgDireccion" display="icon" />
+
+						<h:outputText value="Categoria:" />
+						<p:selectOneButton value="#{entidadController.categoria}">
+							<f:selectItem itemLabel="Prueba Categoria" itemValue="1" />
+							<f:selectItem itemLabel="Veterinaria" itemValue="2" />
+							<f:selectItem itemLabel="Otros" itemValue="3" />
+						</p:selectOneButton>
+
+						<p:outputLabel for="nombreContacto" value="Nombre Contacto" />
+						<p:inputText id="nombreContacto"
+							value="#{entidadController.nombreContacto}"
+							label="Nombre Contacto" required="true">
+							<f:validateLength minimum="2" />
+							<p:ajax update="msgNombreContacto" event="keyup" />
+						</p:inputText>
+						<p:message for="nombreContacto" id="msgNombreContacto"
+							display="icon" />
+
+						<p:outputLabel for="apellido" value="Apellido:  " />
+						<p:inputText id="apellido"
+							value="#{entidadController.apellidoContacto}" label="Apellido"
+							required="true">
+							<f:validateLength minimum="2" />
+							<p:ajax update="msgApellido" event="keyup" />
+						</p:inputText>
+						<p:message for="apellido" id="msgApellido" display="icon" />
+
+						<p:outputLabel for="telefono" value="Telefono: " />
+						<p:inputText id="telefono" value="#{entidadController.telefono}"
+							label="Telefono" required="true">
+							<f:validateLength minimum="2" />
+							<p:ajax update="msgTelefono" event="keyup" />
+						</p:inputText>
+						<p:message for="telefono" id="msgTelefono" display="icon" />
+
+						<h:outputLabel for="email" value="Email: " />
+						<p:inputText id="email" value="#{entidadController.email}">
+							<!--  <f:validator validatorId="custom.emailValidator" />-->
+						</p:inputText>
+						<p:message for="email" display="tooltip" />
+						<h:outputText value="" />
+
+						<h:outputLabel for="clave" value="Contraseña: " />
+						<p:password id="clave" value="#{entidadController.clave}"
+							label="Contraseña" required="true" />
+						<p:message for="clave" id="msgClave" display="icon" />
+
+					</h:panelGrid>
+
+					<p:commandButton value="Save" update="panel"
+						actionListener="#{entidadController.guardarEntidad}"
+						icon="ui-icon-check" />
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
