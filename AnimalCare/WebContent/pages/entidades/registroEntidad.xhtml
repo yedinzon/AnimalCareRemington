@@ -30,7 +30,7 @@
 
 						<h:panelGrid columns="3" cellpadding="5">
 
-							<p:outputLabel for="nombre" value="Nombre:" />
+							<h:outputText for="nombre" value="Nombre:" />
 							<p:inputText id="nombre" size="45"
 								value="#{entidadController.nombre}" required="true"
 								label="Nombre">
@@ -38,29 +38,15 @@
 							</p:inputText>
 							<p:message for="nombre" display="icon" />
 
-							<p:outputLabel for="pais" value="Pais: " />
-							<p:inputText id="pais" size="45" label="Pais" required="true">
-								<f:validateLength minimum="1" />
-								<p:ajax update="msgPais" event="keyup" />
-							</p:inputText>
-							<p:message for="pais" id="msgPais" display="icon" />
+							
 
-							<p:outputLabel for="departamento" value="Departamento: " />
-							<p:inputText id="departamento" size="45" label="Departamento"
-								required="true">
-								<f:validateLength minimum="1" />
-								<p:ajax update="msgDepartamento" event="keyup" />
-							</p:inputText>
-							<p:message for="departamento" id="msgDepartamento" display="icon" />
-
-							<p:outputLabel for="ciudad" value="Ciudad: " />
-							<p:inputText id="ciudad" size="45"
-								value="#{entidadController.ciudad}" label="Ciudad"
-								required="true">
-								<f:validateLength minimum="1" />
-								<p:ajax update="msgCiudad" event="keyup" />
-							</p:inputText>
-							<p:message for="ciudad" id="msgCiudad" display="icon" />
+							<h:outputText value="Ciudad: " />
+							<p:selectOneMenu>
+								<f:selectItem itemLabel="Seleccione una ciudad" itemValue="#{null}"
+									noSelectionOption="true" />
+								<f:selectItems value="#{ciudadController.listaCiudades}" var="ciudad"
+									itemLabel="#{ciudad.nombre}" itemValue="#{ciudad.codigo}" />
+							</p:selectOneMenu>
 
 							<p:outputLabel for="direccion" value="Direccion: " />
 							<p:inputText id="direccion" size="45"
