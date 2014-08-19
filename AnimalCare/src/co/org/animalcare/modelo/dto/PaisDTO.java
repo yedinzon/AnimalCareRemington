@@ -3,9 +3,13 @@
  */
 package co.org.animalcare.modelo.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,6 +34,25 @@ public class PaisDTO implements java.io.Serializable {
 	@Column(name = "NV_NOMBRE")
 	private String nombre;
 	
+	@OneToMany(mappedBy="pais")
+	private List<DepartamentoDTO> listaDepartamentos;
+	
+	public PaisDTO() {
+		super();
+		listaDepartamentos = new ArrayList<DepartamentoDTO>();
+	}
+	
+	public void addDepartamento(DepartamentoDTO d) {
+		 
+        listaDepartamentos.add(d);
+    }
+	
+	public List<DepartamentoDTO> getListaDepartamentos() {
+		return listaDepartamentos;
+	}
+	public void setListaDepartamentos(List<DepartamentoDTO> listaDepartamentos) {
+		this.listaDepartamentos = listaDepartamentos;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

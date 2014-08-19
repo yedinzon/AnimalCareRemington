@@ -3,9 +3,15 @@
  */
 package co.org.animalcare.modelo.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,8 +37,29 @@ public class CiudadDTO implements java.io.Serializable {
 	private String nombre;
 	
 	//Coresponde al código del departamento al que pertenece la ciudad.
-	@Column(name = "NM_CODIGO_DEPARTAMENTO")
+	@ManyToOne
+	@JoinColumn(name = "NM_CODIGO_DEPARTAMENTO")
 	private DepartamentoDTO departamento;
+	
+	@OneToMany(mappedBy="ciudad")
+	private List<EntidadDTO> listaEntidades;
+	
+	public void addEntidad(EntidadDTO e) {
+		listaEntidades.add(e);
+	}
+	
+	public List<EntidadDTO> getListaEntidades() {
+		return listaEntidades;
+	}
+
+	public void setListaEntidades(List<EntidadDTO> listaEntidades) {
+		this.listaEntidades = listaEntidades;
+	}
+
+	public CiudadDTO() {
+		super();
+		listaEntidades = new ArrayList<EntidadDTO>();
+	}
 	
 	public int getCodigo() {
 		return codigo;
