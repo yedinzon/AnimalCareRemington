@@ -38,12 +38,12 @@
 							</p:inputText>
 							<p:message for="nombre" display="icon" />
 
-							<p:outputLabel for="pais" value="Pais: " />
-							<p:inputText id="pais" size="45" label="Pais" required="true">
-								<f:validateLength minimum="1" />
-								<p:ajax update="msgPais" event="keyup" />
-							</p:inputText>
-							<p:message for="pais" id="msgPais" display="icon" />
+							 <h:outputText value="Pais:" />
+				            <p:selectOneMenu id="pais" value="#{paisController.pais}">
+				                <f:selectItem itemLabel="Seleccione el Pais" itemValue="#{null}" noSelectionOption="true" />
+				                <f:selectItems value="#{paisController.listaPaises}" var="pais" itemLabel="#{pais.nombre}"/>
+				            </p:selectOneMenu>
+							<p:message for="pais" display="icon" />
 
 							<p:outputLabel for="departamento" value="Departamento: " />
 							<p:inputText id="departamento" size="45" label="Departamento"

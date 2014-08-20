@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+<h:form>
+    <p:panel id="panel" header="Registro de Donante">
+ 		
+        <p:messages id="msgs"/>
+ 
+        <h:panelGrid columns="3" cellpadding="5">
+            <p:outputLabel for="nombres" value="Nombres:" />
+            <p:inputText id="nombres" value="#{donanteController.nombres}" required="true" label="Nombre">
+                <f:validateLength minimum="2" />
+                <p:ajax update="msgNombres" event="keyup" />
+            </p:inputText>
+            <p:message for="nombres" id="msgNombres" display="icon" />
+ 
+            <p:outputLabel for="apellidos" value="Apellidos:" />
+            <p:inputText id="apellidos" value="#{donanteController.apellidos}" label="Apellidos" required="true">
+                <f:validateLength minimum="2" />
+                <p:ajax update="msgApellidos" event="keyup" />
+            </p:inputText>
+            <p:message for="apellidos" id="msgApellidos" display="icon" />
+            
+            <h:outputLabel for="email1" value="Email: *" />
+	        <p:inputText id="email1" value="#{donanteController.email}" match="email2" label="Email" required="true" />
+	 
+	        <h:outputLabel for="email2" value="Confirmar Email: *" />
+	        <p:inputText id="email2" label="Confirmar Email" required="true">
+	        	<p:ajax update="email2" event="keyup" />
+	        </p:inputText>
+	        <h:outputLabel for="clave" value="Contraseña: " />
+        	<p:password id="clave" value="#{donanteController.clave}" />
+ 			
+        </h:panelGrid>
+ 
+        <p:commandButton value="Guardar" update="panel" actionListener="#{donanteController.guardarDonante}" icon="ui-icon-check" />
+    </p:panel>
+</h:form>
+</h:body>
+</html>
