@@ -6,6 +6,8 @@ package co.org.animalcare.modelo.dto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -31,7 +33,8 @@ public class EntidadDTO implements java.io.Serializable {
 	private String nombre;
 	
 	//Corresponde al código de la ciudad donde se encuentra la entidad
-	@Column(name = "NM_CODIGO_CIUDAD")
+	@ManyToOne
+	@JoinColumn(name = "NM_CODIGO_CIUDAD")
 	private CiudadDTO ciudad;
 	
 	//Corresponde a la dirección de la entidad
