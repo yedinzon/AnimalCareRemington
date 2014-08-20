@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+
+		<ui:define name="content">
+
+			<h:form style="margin-left:auto;margin-right:auto;width:50%">
+
+				<p:panelGrid id="panel" columns="2">
+
+					<f:facet name="header">
+						<p:outputLabel value="Registro de entidad" />
+					</f:facet>
+
+					<p:column>
+
+						<p:messages id="msgs" />
+
+						<h:panelGrid>
+
+							<p:outputLabel for="nombre" value="Nombre:" />
+							<p:inputText id="nombre" size="45"
+								value="#{entidadController.nombre}" required="true"
+								label="Nombre">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:message for="nombre" display="icon" />
+
+<<<<<<< HEAD
+							 <h:outputText value="Pais:" />
+				            <p:selectOneMenu id="pais" value="#{paisController.pais}">
+				                <f:selectItem itemLabel="Seleccione el Pais" itemValue="#{null}" noSelectionOption="true" />
+				                <f:selectItems value="#{paisController.listaPaises}" var="pais" itemLabel="#{pais.nombre}"/>
+				            </p:selectOneMenu>
+							<p:message for="pais" display="icon" />
+=======
+							<p:outputLabel value="Departamento: " />
+							<p:selectOneMenu>
+								<f:selectItem itemLabel="Seleccione un departamento"
+									itemValue="#{null}" noSelectionOption="true" />
+								<f:selectItems value="#{departamentoController.listaDepartamentos}"
+									var="departamento" itemLabel="#{departamento.nombre}"
+									itemValue="#{departamento.codigo}" />
+								<f:ajax event="valueChange" render="c" />
+							</p:selectOneMenu>
+>>>>>>> branch 'master' of https://github.com/yedinzon/AnimalCareRemington.git
+
+							<p:outputLabel value="Ciudad: " />
+							<p:outputPanel id="c">
+							<p:selectOneMenu rendered="#{ciudadController.departamento.codigo == departamento.codigo}">
+								<f:selectItem itemLabel="Seleccione una ciudad"
+									itemValue="#{null}" noSelectionOption="true" />
+								<f:selectItems value="#{ciudadController.listaCiudades}"
+									var="ciudad" itemLabel="#{ciudad.nombre}"
+									itemValue="#{ciudad.codigo}" />
+							</p:selectOneMenu>
+</p:outputPanel>
+							<p:outputLabel for="direccion" value="Direccion: " />
+							<p:inputText id="direccion" size="45"
+								value="#{entidadController.direccion}" label="Direccion"
+								required="true">
+								<f:validateLength minimum="2" />
+								<p:ajax update="msgDireccion" event="keyup" />
+							</p:inputText>
+							<p:message for="direccion" id="msgDireccion" display="icon" />
+
+							<h:outputText value="Categoria:" />
+							<p:selectOneMenu value="#{entidadController.categoria}">
+								<f:selectItem itemLabel="Selecione una categoría"
+									itemValue="#{null}" noSelectionOption="true" />
+								<f:selectItems value="#{categoriaController.listaCategorias}"
+									var="categoria" itemLabel="#{categoria.nombre}" />
+							</p:selectOneMenu>
+
+						</h:panelGrid>
+
+					</p:column>
+
+					<p:column>
+
+						<h:panelGrid>
+
+							<p:outputLabel for="nombreContacto" value="Nombre Contacto" />
+							<p:inputText id="nombreContacto" size="45"
+								value="#{entidadController.nombreContacto}"
+								label="Nombre Contacto" required="true">
+								<f:validateLength minimum="2" />
+								<p:ajax update="msgNombreContacto" event="keyup" />
+							</p:inputText>
+							<p:message for="nombreContacto" id="msgNombreContacto"
+								display="icon" />
+
+							<p:outputLabel for="apellido" value="Apellido:  " />
+							<p:inputText id="apellido" size="45"
+								value="#{entidadController.apellidoContacto}" label="Apellido"
+								required="true">
+								<f:validateLength minimum="2" />
+								<p:ajax update="msgApellido" event="keyup" />
+							</p:inputText>
+							<p:message for="apellido" id="msgApellido" display="icon" />
+
+							<p:outputLabel for="telefono" value="Telefono: " />
+							<p:inputText id="telefono" size="45"
+								value="#{entidadController.telefono}" label="Telefono"
+								required="true">
+								<f:validateLength minimum="2" />
+								<p:ajax update="msgTelefono" event="keyup" />
+							</p:inputText>
+							<p:message for="telefono" id="msgTelefono" display="icon" />
+
+							<h:outputLabel for="email" value="Email: " />
+							<p:inputText id="email" size="45"
+								value="#{entidadController.email}">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:message for="email" display="tooltip" />
+
+							<h:outputLabel for="clave" value="Contraseña: " />
+							<p:password id="clave" value="#{entidadController.clave}"
+								label="Contraseña" required="true">
+								<p:ajax update="msgClave" event="keyup" />
+							</p:password>
+							<p:message for="clave" id="msgClave" display="icon" />
+
+						</h:panelGrid>
+
+						<p:commandButton value="Guardar" update="panel" resetValues="true"
+							actionListener="#{entidadController.guardarEntidad}"
+							icon="ui-icon-check" />
+
+					</p:column>
+
+				</p:panelGrid>
+
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>
