@@ -25,7 +25,7 @@ public class PaisController implements Serializable {
 	@ManagedProperty(value="#{paisService}")
     private PaisService paisService;
   
-    private List<PaisDTO> listaPaises;
+    public List<PaisDTO> listaPaises;
     private PaisDTO pais =new PaisDTO();    
     private int codigo;
     private String nombre;

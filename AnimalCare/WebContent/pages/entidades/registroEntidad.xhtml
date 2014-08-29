@@ -38,7 +38,7 @@
 							<p:message for="nombre" display="icon" />
 
 
-							 <h:outputText value="Pais:" />
+							<!-- <h:outputText value="Pais:" />
 				            <p:selectOneMenu id="pais" value="#{paisController.pais}">
 				                <f:selectItem itemLabel="Seleccione el Pais" itemValue="#{null}" noSelectionOption="true" />
 				                <f:selectItems value="#{paisController.listaPaises}" var="pais" itemLabel="#{pais.nombre}"/>
@@ -53,7 +53,21 @@
 									var="departamento" itemLabel="#{departamento.nombre}"
 									itemValue="#{departamento.codigo}" />
 								<f:ajax event="valueChange" render="c" />
-							</p:selectOneMenu>
+							</p:selectOneMenu>-->
+							
+							<h:outputText value="Pais:" />
+				            <p:selectOneMenu id="pais" value="#{departamentosBeans.codigo}">
+				                <f:selectItem itemLabel="Seleccione el Pais" itemValue="#{null}" noSelectionOption="true" />
+				                <f:selectItems value="#{paisController.listaPaises}" var="pais" itemLabel="#{pais.nombre}" itemValue="#{pais.codigo}" />
+				                <p:ajax actionlistener="#{departamentosBeans.codigo}" update="departamento" />	
+				            </p:selectOneMenu>
+							<p:message for="pais" display="icon" />
+
+							<p:outputLabel value="Departamento: " />
+							<p:selectOneMenu id="departamento">
+			                <f:selectItem itemLabel="Seleccione el Departamento" itemValue="#{null}" noSelectionOption="true" />
+			                <f:selectItems value="#{departamentosBeans.listaDepartamentosPorPais}" var="departamento" itemLabel="#{departamento.nombre}" itemValue="#{departamento.codigo}"/>
+			            	</p:selectOneMenu>
 
 
 							<p:outputLabel value="Ciudad: " />
@@ -80,7 +94,7 @@
 								<f:selectItem itemLabel="Selecione una categoría"
 									itemValue="#{null}" noSelectionOption="true" />
 								<f:selectItems value="#{categoriaController.listaCategorias}"
-									var="categoria" itemLabel="#{categoria.nombre}" />
+									var="categoria" itemLabel="#{categoria.nombre}" itemValue="#{categoria}"/>
 							</p:selectOneMenu>
 
 						</h:panelGrid>

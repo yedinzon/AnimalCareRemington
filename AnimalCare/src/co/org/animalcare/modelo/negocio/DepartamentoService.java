@@ -23,9 +23,15 @@ public class DepartamentoService {
  
     @Transactional
     public List<DepartamentoDTO> listDepartamento() {
- 
         return departamentoDao.findAll();
     }
+    
+    @Transactional
+    public List<DepartamentoDTO> listDepartamentoPorPais(int codigo) {
+        return departamentoDao.findAll(codigo);
+    }
+    
+    
     @Transactional
     public void eliminar(int idDepartamento) {
     	DepartamentoDTO departamentoC=departamentoDao.findOne(idDepartamento);
@@ -49,5 +55,6 @@ public class DepartamentoService {
     	DepartamentoDTO departamentoC=departamentoDao.findOne(idDepartamento);
     	return departamentoC;    	
     }
+
 
 }

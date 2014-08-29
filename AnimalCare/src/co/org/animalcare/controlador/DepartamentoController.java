@@ -10,9 +10,9 @@ import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
 
-import co.org.animalcare.modelo.negocio.DepartamentoService;
 import co.org.animalcare.modelo.dto.DepartamentoDTO;
 import co.org.animalcare.modelo.dto.PaisDTO;
+import co.org.animalcare.modelo.negocio.DepartamentoService;
 
 @Controller
 @ManagedBean(name="departamentoController")
@@ -32,7 +32,7 @@ public class DepartamentoController implements Serializable {
     private String nombre;
     private PaisDTO pais;
 
-
+    
 	public DepartamentoService getDepartamentoService() {
 		return departamentoService;
 	}
@@ -47,9 +47,11 @@ public class DepartamentoController implements Serializable {
 		return listaDepartamentos;
 	}
 
+
 	public void setListaDepartamentos(List<DepartamentoDTO> listaDepartamentos) {
 		this.listaDepartamentos = listaDepartamentos;
 	}
+	
 
 	public DepartamentoDTO getDepartamento() {
 		return departamento;
@@ -87,7 +89,7 @@ public class DepartamentoController implements Serializable {
 		int idDepartamento = (int)event.getComponent().getAttributes().get("idDepartamento");
 		departamentoService.eliminar(idDepartamento);
 	}
-
+	
 	public void guardarDepartamento(ActionEvent event) {
 		
 		DepartamentoDTO dpto = new DepartamentoDTO();
@@ -95,6 +97,6 @@ public class DepartamentoController implements Serializable {
 		dpto.setNombre(nombre);
 		dpto.setPais(pais);
 		departamentoService.guardar(dpto);
-	}	
+	}
 
 }

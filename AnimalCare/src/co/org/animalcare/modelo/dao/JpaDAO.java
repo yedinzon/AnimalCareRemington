@@ -24,6 +24,13 @@ public abstract class JpaDAO< T extends Serializable > {
 	      return entityManager.createQuery( "from " + clazz.getName() )
 	       .getResultList();
 	   }
+	   @SuppressWarnings("unchecked")
+	   public List< T > findAll(int codigo){
+		   System.err.println(entityManager);
+	      return entityManager.createQuery( "from " + clazz.getName() + " where nm_codigo_pais = :codigo_pais")
+	       .setParameter("codigo_pais", codigo)    
+	       .getResultList();     
+	   }	   
 	   public void save( final T entity ){
 	      entityManager.persist( entity );
 	   }
