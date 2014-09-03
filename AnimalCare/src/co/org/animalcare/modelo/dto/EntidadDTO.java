@@ -76,6 +76,9 @@ public class EntidadDTO implements java.io.Serializable {
 	@Column(name = "NV_ESTADO")
 	private String estado;
 	
+	@Column(name = "DA_FECHA_CREACION")
+	private String fechaCreacion;
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -153,5 +156,11 @@ public class EntidadDTO implements java.io.Serializable {
 	}
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	public String getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(String fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 }

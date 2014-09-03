@@ -75,7 +75,7 @@
 							<h:outputText value="Ciudad: " />
 							<p:selectOneMenu id="ciudad" value="#{entidadController.codigoCiudad}">
 							<f:selectItem itemLabel="Seleccione una ciudad" itemValue="#{null}" noSelectionOption="true" />
-							<f:selectItems value="#{ciudadController.listaCiudadesPorDepartamento}" var="ciudad" itemLabel="#{ciudad.nombre}" itemValue="#{ciudad.codigo}" />
+							<f:selectItems value="#{ciudadController.listaCiudades}" var="ciudad" itemLabel="#{ciudad.nombre}" itemValue="#{ciudad.codigo}" />
 
 							</p:selectOneMenu>
 						

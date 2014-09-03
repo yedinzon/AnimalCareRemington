@@ -2,6 +2,7 @@ package co.org.animalcare.controlador;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -10,10 +11,10 @@ import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
 
-import co.org.animalcare.modelo.negocio.EntidadService;
 import co.org.animalcare.modelo.dto.CategoriaDTO;
 import co.org.animalcare.modelo.dto.CiudadDTO;
 import co.org.animalcare.modelo.dto.EntidadDTO;
+import co.org.animalcare.modelo.negocio.EntidadService;
 
 @Controller
 @ManagedBean(name="entidadController")
@@ -42,7 +43,9 @@ public class EntidadController implements Serializable {
     private String email;
     private String clave;
     private String estado="EN ESPERA";
-
+    private Calendar calendar= Calendar.getInstance(); 
+	private String fechaCreacion= calendar.get(Calendar.YEAR)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.DATE)+" "+calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+":"+calendar.get(Calendar.SECOND); 
+	
 	public EntidadService getEntidadService() {
 		return entidadService;
 	}
@@ -173,13 +176,20 @@ public class EntidadController implements Serializable {
 		this.estado = estado;
 	}
 
+	public String getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(String fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
 	public void eliminarEntidad(ActionEvent event) {
 		int idEntidad = (int)event.getComponent().getAttributes().get("idEntidad");
 		entidadService.eliminar(idEntidad);
 	}
 
 	public void guardarEntidad(ActionEvent event) {
-		
 		EntidadDTO ent = new EntidadDTO();
 		//ent.setCodigo(codigo);
 		ent.setNombre(nombre);
@@ -192,6 +202,7 @@ public class EntidadController implements Serializable {
 		ent.setEmail(email);
 		ent.setClave(clave);
 		ent.setEstado(estado);
+		ent.setFechaCreacion(fechaCreacion);
 		entidadService.guardar(ent);
 	}	
 
