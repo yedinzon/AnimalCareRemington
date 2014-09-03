@@ -32,8 +32,10 @@ public class EntidadController implements Serializable {
     private int codigo;
     private String nombre;
     private CiudadDTO ciudad;
+    private int codigoCiudad;
     private String direccion;
     private CategoriaDTO categoria;
+    private int codigoCategoria;
     private String nombreContacto;
     private String apellidoContacto;
     private String telefono;
@@ -91,6 +93,14 @@ public class EntidadController implements Serializable {
 		this.ciudad = ciudad;
 	}
 
+	public int getCodigoCiudad() {
+		return codigoCiudad;
+	}
+
+	public void setCodigoCiudad(int codigoCiudad) {
+		this.codigoCiudad = codigoCiudad;
+	}
+
 	public String getDireccion() {
 		return direccion;
 	}
@@ -105,6 +115,14 @@ public class EntidadController implements Serializable {
 
 	public void setCategoria(CategoriaDTO categoria) {
 		this.categoria = categoria;
+	}
+
+	public int getCodigoCategoria() {
+		return codigoCategoria;
+	}
+
+	public void setCodigoCategoria(int codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
 	}
 
 	public String getNombreContacto() {
@@ -165,9 +183,9 @@ public class EntidadController implements Serializable {
 		EntidadDTO ent = new EntidadDTO();
 		//ent.setCodigo(codigo);
 		ent.setNombre(nombre);
-		ent.setCiudad(ciudad);
+		ent.setCodigoCiudad(codigoCiudad);
 		ent.setDireccion(direccion);
-		ent.setCategoria(categoria);
+		ent.setCodigoCategoria(codigoCategoria);
 		ent.setNombreContacto(nombreContacto);
 		ent.setApellidoContacto(apellidoContacto);
 		ent.setTelefono(telefono);

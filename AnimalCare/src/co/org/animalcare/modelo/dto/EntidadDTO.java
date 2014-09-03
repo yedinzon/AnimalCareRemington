@@ -34,16 +34,23 @@ public class EntidadDTO implements java.io.Serializable {
 	
 	//Corresponde al código de la ciudad donde se encuentra la entidad
 	@ManyToOne
-	@JoinColumn(name = "NM_CODIGO_CIUDAD")
+	@JoinColumn(name = "NM_CODIGO_CIUDAD",insertable=false,updatable=false)
 	private CiudadDTO ciudad;
+	
+	@Column(name = "NM_CODIGO_CIUDAD")
+	private int codigoCiudad;
 	
 	//Corresponde a la dirección de la entidad
 	@Column(name = "NV_DIRECCION")
 	private String direccion;
 	
 	//Corresponde al código de la categoría al que pertence la entidad
-	@Column(name = "NM_CODIGO_CATEGORIA")
+	@ManyToOne
+	@JoinColumn(name = "NM_CODIGO_CATEGORIA",insertable=false,updatable=false)
 	private CategoriaDTO categoria;
+	
+	@Column(name = "NM_CODIGO_CATEGORIA")
+	private int codigoCategoria;
 	
 	//Corresponde al nombre del contacto de la entidad
 	@Column(name = "NV_NOMBRE_CONTACTO")
@@ -87,6 +94,12 @@ public class EntidadDTO implements java.io.Serializable {
 	public void setCiudad(CiudadDTO ciudad) {
 		this.ciudad = ciudad;
 	}
+	public int getCodigoCiudad() {
+		return codigoCiudad;
+	}
+	public void setCodigoCiudad(int codigoCiudad) {
+		this.codigoCiudad = codigoCiudad;
+	}
 	public String getDireccion() {
 		return direccion;
 	}
@@ -98,6 +111,12 @@ public class EntidadDTO implements java.io.Serializable {
 	}
 	public void setCategoria(CategoriaDTO categoria) {
 		this.categoria = categoria;
+	}
+	public int getCodigoCategoria() {
+		return codigoCategoria;
+	}
+	public void setCodigoCategoria(int codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
 	}
 	public String getNombreContacto() {
 		return nombreContacto;

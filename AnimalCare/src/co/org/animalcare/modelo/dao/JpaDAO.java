@@ -25,10 +25,10 @@ public abstract class JpaDAO< T extends Serializable > {
 	       .getResultList();
 	   }
 	   @SuppressWarnings("unchecked")
-	   public List< T > findAll(int codigo){
+	   public List< T > findAll(int codigo, String columna){
 		   System.err.println(entityManager);
-	      return entityManager.createQuery( "from " + clazz.getName() + " where nm_codigo_pais = :codigo_pais")
-	       .setParameter("codigo_pais", codigo)    
+		   System.out.println(codigo+" - "+ columna);
+	      return entityManager.createQuery( "from " + clazz.getName() + " where "+columna+" = "+codigo)
 	       .getResultList();     
 	   }	   
 	   public void save( final T entity ){

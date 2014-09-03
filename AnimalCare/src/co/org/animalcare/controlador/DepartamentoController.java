@@ -31,7 +31,8 @@ public class DepartamentoController implements Serializable {
     private int codigo;
     private String nombre;
     private PaisDTO pais;
-
+    private int codigoPais;
+	private List<DepartamentoDTO> listaDepartamentosPorPais;
     
 	public DepartamentoService getDepartamentoService() {
 		return departamentoService;
@@ -39,6 +40,25 @@ public class DepartamentoController implements Serializable {
 
 	public void setDepartamentoService(DepartamentoService departamentoService) {
 		this.departamentoService = departamentoService;
+	}
+	
+	public int getCodigoPais() {
+		return codigoPais;
+		
+	}
+
+	public void setCodigoPais(int codigoPais) {
+		this.codigoPais = codigoPais;
+	}
+	
+	public List<DepartamentoDTO> getListaDepartamentosPorPais() {
+		listaDepartamentosPorPais = new ArrayList<DepartamentoDTO>();
+		listaDepartamentosPorPais.addAll(departamentoService.listDepartamentoPorPais(codigoPais));
+		return listaDepartamentosPorPais;
+	}
+		
+	public void setListaDepartamentosPorPais(List<DepartamentoDTO> listaDepartamentosPorPais) {
+		this.listaDepartamentosPorPais = listaDepartamentosPorPais;
 	}
 
 	public List<DepartamentoDTO> getListaDepartamentos() {

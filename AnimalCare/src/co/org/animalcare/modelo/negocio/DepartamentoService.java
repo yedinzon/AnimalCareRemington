@@ -28,7 +28,7 @@ public class DepartamentoService {
     
     @Transactional
     public List<DepartamentoDTO> listDepartamentoPorPais(int codigo) {
-        return departamentoDao.findAll(codigo);
+        return departamentoDao.findAll(codigo, "nm_codigo_pais");
     }
     
     

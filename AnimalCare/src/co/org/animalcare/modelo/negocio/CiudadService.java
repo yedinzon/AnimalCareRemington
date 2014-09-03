@@ -26,6 +26,12 @@ public class CiudadService {
  
         return ciudadDao.findAll();
     }
+    
+    @Transactional
+    public List<CiudadDTO> listCiudadesPorDepartamento(int codigo) {
+        return ciudadDao.findAll(codigo, "nm_codigo_departamento");
+    }
+    
     @Transactional
     public void eliminar(int idCiudad) {
     	CiudadDTO ciudadC=ciudadDao.findOne(idCiudad);

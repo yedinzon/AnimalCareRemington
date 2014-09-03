@@ -27,10 +27,12 @@ public class CiudadController implements Serializable {
     private CiudadService ciudadService;
   
     private List<CiudadDTO> listaCiudades;
-    private CiudadDTO ciudad =new CiudadDTO();    
+	private CiudadDTO ciudadDTO;
     private int codigo;
     private String nombre;
     private DepartamentoDTO departamento;
+    private int codigoDepartamento;
+    private List<CiudadDTO> listaCiudadesPorDepartamento;
 
 	public CiudadService getCiudadService() {
 		return ciudadService;
@@ -38,6 +40,27 @@ public class CiudadController implements Serializable {
 
 	public void setCiudadService(CiudadService ciudadService) {
 		this.ciudadService = ciudadService;
+	}
+	
+	public int getCodigoDepartamento() {
+		System.out.println("Get "+codigoDepartamento);
+		return codigoDepartamento;
+	}
+
+	public void setCodigoDepartamento(int codigoDepartamento) {
+		
+		this.codigoDepartamento = codigoDepartamento;
+		System.out.println("Set "+codigoDepartamento);
+	}
+
+	public List<CiudadDTO> getListaCiudadesPorDepartamento() {
+		listaCiudadesPorDepartamento = new ArrayList<CiudadDTO>();
+		listaCiudadesPorDepartamento.addAll(ciudadService.listCiudadesPorDepartamento(codigoDepartamento));
+		return listaCiudadesPorDepartamento;
+	}
+
+	public void setListaCiudadesPorDepartamento(List<CiudadDTO> listaCiudadesPorDepartamento) {
+		this.listaCiudadesPorDepartamento = listaCiudadesPorDepartamento;
 	}
 
 	public List<CiudadDTO> getListaCiudades() {
@@ -49,13 +72,13 @@ public class CiudadController implements Serializable {
 	public void setListaCiudades(List<CiudadDTO> listaCiudades) {
 		this.listaCiudades = listaCiudades;
 	}
-
-	public CiudadDTO getCiudad() {
-		return ciudad;
+	
+	public CiudadDTO getCiudadDTO() {
+		return ciudadDTO;
 	}
 
-	public void setCiudad(CiudadDTO ciudad) {
-		this.ciudad = ciudad;
+	public void setCiudadDTO(CiudadDTO ciudadDTO) {
+		this.ciudadDTO = ciudadDTO;
 	}
 
 	public int getCodigo() {
@@ -92,7 +115,7 @@ public class CiudadController implements Serializable {
 		CiudadDTO c = new CiudadDTO();
 		c.setCodigo(codigo);
 		c.setNombre(nombre);
-		c.setDepartamento(departamento);
+		c.setCodigoDepartamento(codigoDepartamento);
 		ciudadService.guardar(c);
 	}	
 
