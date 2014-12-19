@@ -37,8 +37,8 @@ public class CiudadDTO implements java.io.Serializable {
 	@JoinColumn(name = "NM_CODIGO_DEPARTAMENTO",insertable=false,updatable=false)
 	private DepartamentoDTO departamento;
 
-	@Column(name = "NM_CODIGO_DEPARTAMENTO")
-	private int codigoDepartamento;
+//	@Column(name = "NM_CODIGO_DEPARTAMENTO")
+//	private int codigoDepartamento;
 	
 	public int getCodigo() {
 		return codigo;
@@ -58,10 +58,10 @@ public class CiudadDTO implements java.io.Serializable {
 	public void setDepartamento(DepartamentoDTO departamento) {
 		this.departamento = departamento;
 	}
-	public int getCodigoDepartamento() {
-		return codigoDepartamento;
-	}
-	public void setCodigoDepartamento(int codigoDepartamento) {
-		this.codigoDepartamento = codigoDepartamento;
-	}
+//	public int getCodigoDepartamento() {
+//		return codigoDepartamento;
+//	}
+//	public void setCodigoDepartamento(int codigoDepartamento) {
+//		this.codigoDepartamento = codigoDepartamento;
+//	}
 }

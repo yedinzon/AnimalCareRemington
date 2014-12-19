@@ -23,7 +23,6 @@ public class PaisService {
  
     @Transactional
     public List<PaisDTO> listPais() {
- 
         return paisDao.findAll();
     }
     @Transactional

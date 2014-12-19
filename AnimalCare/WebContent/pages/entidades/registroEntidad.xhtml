@@ -67,7 +67,7 @@
 							<p:selectOneMenu id="departamento" value="#{ciudadController.codigoDepartamento}">
 			                <f:selectItem itemLabel="Seleccione el Departamento" itemValue="#{null}" noSelectionOption="true" />
 			                <f:selectItems value="#{departamentoController.listaDepartamentosPorPais}" var="departamento" itemLabel="#{departamento.nombre}" itemValue="#{departamento.codigo}"/>
-			                <p:ajax update="ciudad" listener="#{ciudadController.codigoDepartamento}"/>
+			                <p:ajax update="ciudad"/>
 			            	</p:selectOneMenu> 
 			            	<p:message for="departamento" display="icon" />
 
@@ -75,7 +75,7 @@
 							<h:outputText value="Ciudad: " />
 							<p:selectOneMenu id="ciudad" value="#{entidadController.codigoCiudad}">
 							<f:selectItem itemLabel="Seleccione una ciudad" itemValue="#{null}" noSelectionOption="true" />
-							<f:selectItems value="#{ciudadController.listaCiudades}" var="ciudad" itemLabel="#{ciudad.nombre}" itemValue="#{ciudad.codigo}" />
+							<f:selectItems value="#{ciudadController.listaCiudadesPorDepartamento}" var="ciudad" itemLabel="#{ciudad.nombre}" itemValue="#{ciudad.codigo}" />
 
 							</p:selectOneMenu>
 						

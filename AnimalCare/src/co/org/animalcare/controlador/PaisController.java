@@ -6,15 +6,17 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
 
-import co.org.animalcare.modelo.negocio.PaisService;
 import co.org.animalcare.modelo.dto.PaisDTO;
+import co.org.animalcare.modelo.negocio.PaisService;
 
 @Controller
 @ManagedBean(name="paisController")
+@ViewScoped
 public class PaisController implements Serializable {
 
 	/**
@@ -23,13 +25,13 @@ public class PaisController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@ManagedProperty(value="#{paisService}")
-    private PaisService paisService;
+    private PaisService paisService;	
   
-    public List<PaisDTO> listaPaises;
-    private PaisDTO pais =new PaisDTO();    
+    private List<PaisDTO> listaPaises;
+    private PaisDTO pais;    
     private int codigo;
-    private String nombre;
-
+    private String nombre;		
+	
 	public PaisService getPaisService() {
 		return paisService;
 	}
@@ -38,9 +40,9 @@ public class PaisController implements Serializable {
 		this.paisService = paisService;
 	}
 
-	public List<PaisDTO> getListaPaises() {
+	public List<PaisDTO> getListaPaises() {	
 		listaPaises = new ArrayList<PaisDTO>();
-		listaPaises.addAll(paisService.listPais());
+		listaPaises.addAll(paisService.listPais());		
 		return listaPaises;
 	}
 
@@ -52,7 +54,7 @@ public class PaisController implements Serializable {
 		return pais;
 	}
 
-	public void setPais(PaisDTO pais) {
+	public void setPais(PaisDTO pais) {		
 		this.pais = pais;
 	}
 
@@ -61,6 +63,7 @@ public class PaisController implements Serializable {
 	}
 
 	public void setCodigo(int codigo) {
+		System.out.println("Código pais= "+codigo);
 		this.codigo = codigo;
 	}
 
@@ -83,6 +86,6 @@ public class PaisController implements Serializable {
 		p.setCodigo(codigo);
 		p.setNombre(nombre);
 		paisService.guardar(p);
-	}	
+	}
 
 }

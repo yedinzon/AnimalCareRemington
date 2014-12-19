@@ -48,9 +48,9 @@ public class CiudadController implements Serializable {
 	}
 
 	public void setCodigoDepartamento(int codigoDepartamento) {
-		
-		this.codigoDepartamento = codigoDepartamento;
 		System.out.println("Set "+codigoDepartamento);
+		this.codigoDepartamento = codigoDepartamento;
+		
 	}
 
 	public List<CiudadDTO> getListaCiudadesPorDepartamento() {
@@ -115,7 +115,7 @@ public class CiudadController implements Serializable {
 		CiudadDTO c = new CiudadDTO();
 		c.setCodigo(codigo);
 		c.setNombre(nombre);
-		c.setCodigoDepartamento(codigoDepartamento);
+		c.setDepartamento(departamento);
 		ciudadService.guardar(c);
 	}	
 

@@ -64,6 +64,11 @@
  
             <h:outputLabel for="password" value="Contraseña:" />
             <p:password id="password" value="#{userLoginView.password}" required="true" label="clave" />
+            
+            <p:selectOneRadio id="tipoUsuario" value="">
+            	<f:selectItem itemLabel="Entidad" itemValue="entidad" />
+            	<f:selectItem itemLabel="Donante" itemValue="donante" />
+            </p:selectOneRadio>
  
             <f:facet name="footer">
                 <p:commandButton value="Ingresar" update="growl" actionListener="#{userLoginView.login}"

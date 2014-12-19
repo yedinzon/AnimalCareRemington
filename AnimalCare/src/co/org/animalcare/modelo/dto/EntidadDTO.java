@@ -3,11 +3,14 @@
  */
 package co.org.animalcare.modelo.dto;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -36,8 +39,7 @@ public class EntidadDTO implements java.io.Serializable {
 	@ManyToOne
 	@JoinColumn(name = "NM_CODIGO_CIUDAD",insertable=false,updatable=false)
 	private CiudadDTO ciudad;
-	
-	@Column(name = "NM_CODIGO_CIUDAD")
+
 	private int codigoCiudad;
 	
 	//Corresponde a la dirección de la entidad
@@ -49,7 +51,7 @@ public class EntidadDTO implements java.io.Serializable {
 	@JoinColumn(name = "NM_CODIGO_CATEGORIA",insertable=false,updatable=false)
 	private CategoriaDTO categoria;
 	
-	@Column(name = "NM_CODIGO_CATEGORIA")
+	@Column(name="NM_CODIGO_CATEGORIA")
 	private int codigoCategoria;
 	
 	//Corresponde al nombre del contacto de la entidad
@@ -78,6 +80,9 @@ public class EntidadDTO implements java.io.Serializable {
 	
 	@Column(name = "DA_FECHA_CREACION")
 	private String fechaCreacion;
+	
+	@OneToMany(mappedBy="entidad")
+	private List<AnimalDTO> listaAnimales;
 	
 	public int getCodigo() {
 		return codigo;
@@ -114,12 +119,6 @@ public class EntidadDTO implements java.io.Serializable {
 	}
 	public void setCategoria(CategoriaDTO categoria) {
 		this.categoria = categoria;
-	}
-	public int getCodigoCategoria() {
-		return codigoCategoria;
-	}
-	public void setCodigoCategoria(int codigoCategoria) {
-		this.codigoCategoria = codigoCategoria;
 	}
 	public String getNombreContacto() {
 		return nombreContacto;
@@ -163,4 +162,17 @@ public class EntidadDTO implements java.io.Serializable {
 	public void setFechaCreacion(String fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+	public List<AnimalDTO> getListaAnimales() {
+		return listaAnimales;
+	}
+	public void setListaAnimales(List<AnimalDTO> listaAnimales) {
+		this.listaAnimales = listaAnimales;
+	}
+	public int getCodigoCategoria() {
+		return codigoCategoria;
+	}
+	public void setCodigoCategoria(int codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;		
+	}
+	
 }

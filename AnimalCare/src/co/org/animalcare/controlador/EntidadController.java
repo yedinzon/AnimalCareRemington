@@ -29,7 +29,7 @@ public class EntidadController implements Serializable {
     private EntidadService entidadService;
   
     private List<EntidadDTO> listaEntidades;
-    private EntidadDTO entidad =new EntidadDTO();    
+    private EntidadDTO entidad;    
     private int codigo;
     private String nombre;
     private CiudadDTO ciudad;
@@ -44,8 +44,23 @@ public class EntidadController implements Serializable {
     private String clave;
     private String estado="EN ESPERA";
     private Calendar calendar= Calendar.getInstance(); 
-	private String fechaCreacion= calendar.get(Calendar.YEAR)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.DATE)+" "+calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+":"+calendar.get(Calendar.SECOND); 
+	private String fechaCreacion= calendar.get(Calendar.YEAR)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.DATE)+" "+calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+":"+calendar.get(Calendar.SECOND);
+	private List<String> estados;
 	
+
+	public List<String> getEstados() {
+		estados = new ArrayList<String>();
+		estados.add("EN ESPERA");
+		estados.add("HABILITADO");
+		estados.add("INHABILITADO");
+		estados.add("BLOQUEADO");
+		return estados;
+	}
+
+	public void setEstados(List<String> estados) {
+		this.estados = estados;
+	}
+
 	public EntidadService getEntidadService() {
 		return entidadService;
 	}

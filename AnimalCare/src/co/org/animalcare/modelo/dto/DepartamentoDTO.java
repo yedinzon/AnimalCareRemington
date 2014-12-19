@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -37,7 +38,7 @@ public class DepartamentoDTO implements java.io.Serializable {
 	private String nombre;
 	
 	//Corresponde al país al que pertence el departamento
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "NM_CODIGO_PAIS")
 	private PaisDTO pais;
 	

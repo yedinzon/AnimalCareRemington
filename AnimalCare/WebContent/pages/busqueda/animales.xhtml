@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Bùsquda</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<p:layout style="width:auto;height:auto;">
+				<p:layoutUnit position="west" resizable="false" size="300"
+					minSize="300">
+					<p:layout style="width:auto;height:auto;">
+					<p:layoutUnit position="north" resizable="false" size="200"
+						minSize="200">
+
+						<h3 style="margin-top: 0">Animales</h3>
+						<p:orderList value="#{animalController.listaAnimales}"
+							var="animal" controlsLocation="none" itemLabel="#{animal.nombre}"
+							itemValue="#{animal.codigo}" />
+					</p:layoutUnit>
+					
+					<p:layoutUnit position="center">
+
+						<h3 style="margin-top: 0">Ubicaciones</h3>
+						<p:orderList value="#{animalController.listaAnimales}"
+							var="animal" controlsLocation="none" itemLabel="#{animal.nombre}"
+							itemValue="#{animal.codigo}" />
+					</p:layoutUnit>
+					</p:layout>
+				</p:layoutUnit>
+
+				<p:layoutUnit position="center">
+
+				</p:layoutUnit>
+
+			</p:layout>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

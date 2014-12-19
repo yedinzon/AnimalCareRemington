@@ -28,7 +28,7 @@ public class PaisDTO implements java.io.Serializable {
 	//Corresponde al código del país
 	@Id
 	@Column(name = "NM_CODIGO")
-	public int codigo;
+	private int codigo;
 	
 	//Corresponde al nombre del país
 	@Column(name = "NV_NOMBRE")

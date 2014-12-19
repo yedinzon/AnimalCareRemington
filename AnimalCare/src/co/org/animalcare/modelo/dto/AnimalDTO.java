@@ -2,7 +2,10 @@ package co.org.animalcare.modelo.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -31,8 +34,9 @@ public class AnimalDTO implements java.io.Serializable {
 	@Column(name = "DA_EDAD")
 	private String edad;
 	
-	//Corresponde al código de la entidad a la que pertece el animal
-	@Column(name = "NM_CODIGO_ENTIDAD")
+	//Corresponde al código de la entidad a la que pertece el animal	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "NM_CODIGO_ENTIDAD")	
 	private EntidadDTO entidad;
 	
 	//Corresponde al estado que tendrá asociado un animal en un momento determinado, como habilitado o deshabilitado.
@@ -48,7 +52,8 @@ public class AnimalDTO implements java.io.Serializable {
 	private String nombre;
 	
 	//Corresponde al codigo de la raza a la que pertenece el animal
-	@Column(name = "NM_CODIGO_RAZA")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "NM_CODIGO_RAZA")
 	private RazaDTO raza;
 	
 	//Corresponde al sexo del animal.

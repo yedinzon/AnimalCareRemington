@@ -28,7 +28,7 @@ public class AnimalController implements Serializable {
     private AnimalService animalService;
   
     private List<AnimalDTO> listaAnimales;
-    private AnimalDTO animal =new AnimalDTO();
+    private AnimalDTO animal;
     private int codigo;
     private String comentario;
     private String edad;

@@ -25,14 +25,15 @@ public class DepartamentoController implements Serializable {
 	
 	@ManagedProperty(value="#{departamentoService}")
     private DepartamentoService departamentoService;
+	
   
     private List<DepartamentoDTO> listaDepartamentos;
-    private DepartamentoDTO departamento =new DepartamentoDTO();    
+    private DepartamentoDTO departamento;    
     private int codigo;
     private String nombre;
     private PaisDTO pais;
     private int codigoPais;
-	private List<DepartamentoDTO> listaDepartamentosPorPais;
+	private List<DepartamentoDTO> listaDepartamentosPorPais;	
     
 	public DepartamentoService getDepartamentoService() {
 		return departamentoService;
@@ -47,7 +48,7 @@ public class DepartamentoController implements Serializable {
 		
 	}
 
-	public void setCodigoPais(int codigoPais) {
+	public void setCodigoPais(int codigoPais) {		
 		this.codigoPais = codigoPais;
 	}
 	
@@ -86,6 +87,7 @@ public class DepartamentoController implements Serializable {
 	}
 
 	public void setCodigo(int codigo) {
+		System.out.println("Código dep= "+codigo);
 		this.codigo = codigo;
 	}
 
