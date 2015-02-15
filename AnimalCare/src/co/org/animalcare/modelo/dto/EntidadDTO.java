@@ -40,6 +40,7 @@ public class EntidadDTO implements java.io.Serializable {
 	@JoinColumn(name = "NM_CODIGO_CIUDAD",insertable=false,updatable=false)
 	private CiudadDTO ciudad;
 
+	@Column(name = "NM_CODIGO_CIUDAD")
 	private int codigoCiudad;
 	
 	//Corresponde a la dirección de la entidad

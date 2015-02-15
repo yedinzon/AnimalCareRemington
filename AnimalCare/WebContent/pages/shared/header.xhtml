@@ -20,7 +20,7 @@
     }
 </script>
 </h:head>
-<body>
+<h:body>
 <div>
 	<h:form>
 		<p:growl id="messages" />
@@ -65,7 +65,7 @@
             <h:outputLabel for="password" value="Contraseña:" />
             <p:password id="password" value="#{userLoginView.password}" required="true" label="clave" />
             
-            <p:selectOneRadio id="tipoUsuario" value="">
+            <p:selectOneRadio id="tipoUsuario">
             	<f:selectItem itemLabel="Entidad" itemValue="entidad" />
             	<f:selectItem itemLabel="Donante" itemValue="donante" />
             </p:selectOneRadio>
@@ -79,6 +79,6 @@
 		
 	<a href="/AnimalCare/pages/donantes/registroDonante.xhtml" style="color: black;font-size: 15px;">Registrarse</a>
 </div>
-</body>
+</h:body>
 
 </html>

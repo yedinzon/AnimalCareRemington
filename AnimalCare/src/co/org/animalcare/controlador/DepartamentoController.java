@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import co.org.animalcare.modelo.negocio.DepartamentoService;
 
 @Controller
 @ManagedBean(name="departamentoController")
+@ViewScoped
 public class DepartamentoController implements Serializable {
 
 	/**
