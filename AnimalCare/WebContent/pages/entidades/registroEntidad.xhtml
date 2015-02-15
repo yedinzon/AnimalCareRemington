@@ -14,7 +14,7 @@
 	
 	<ui:composition template="/pages/shared/template.xhtml">
 
-		<ui:define name="content">
+		<ui:define name="content">		
 
 			<h:form style="margin-left:auto;margin-right:auto;width:50%">			
 
@@ -129,11 +129,11 @@
 							</p:password>
 							<p:message for="clave" id="msgClave" display="icon" />
 
-						</h:panelGrid>
+						</h:panelGrid>					
 
-						<p:commandButton value="Guardar" update="panel" resetValues="true" 
+						<p:commandButton value="Guardar" update="panel" resetValues="true"
 							actionListener="#{entidadController.guardarEntidad}"
-							icon="ui-icon-check" />
+							icon="ui-icon-check"  />					
 
 					</p:column>
 

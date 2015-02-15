@@ -221,6 +221,19 @@ public class EntidadController implements Serializable {
 		ent.setEstado(estado);
 		ent.setFechaCreacion(fechaCreacion);
 		entidadService.guardar(ent);
-	}	
+		limpiarCampos();
+	}
+	
+	protected void limpiarCampos() {
+		this.nombre = null;
+		this.direccion = null;
+		this.nombreContacto = null;
+		this.apellidoContacto = null;
+		this.telefono = null;
+		this.email = null;
+		this.clave = null;
+		this.codigoCategoria = 0;
+		this.codigoCiudad = 0;
+	}
 
 }
