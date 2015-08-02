@@ -27,7 +27,7 @@ public class BancoController implements Serializable {
   
     private List<BancoDTO> listaBancos;
     private BancoDTO banco =new BancoDTO();    
-    private int codigo;
+    private Long codigo;
     private String nombre;
 
 	public BancoService getBancoService() {
@@ -56,11 +56,11 @@ public class BancoController implements Serializable {
 		this.banco = banco;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -73,7 +73,7 @@ public class BancoController implements Serializable {
 	}
 
 	public void eliminarBanco(ActionEvent event) {
-		int idBanco = (int)event.getComponent().getAttributes().get("idBanco");
+		Long idBanco = (Long)event.getComponent().getAttributes().get("idBanco");
 		bancoService.eliminar(idBanco);
 	}
 

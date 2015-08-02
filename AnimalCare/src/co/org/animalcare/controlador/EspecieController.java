@@ -27,7 +27,7 @@ public class EspecieController implements Serializable {
   
     private List<EspecieDTO> listaEspecies;
     private EspecieDTO especie =new EspecieDTO();    
-    private int codigo;
+    private Long codigo;
     private String nombre;
 
 	public EspecieService getEspecieService() {
@@ -56,11 +56,11 @@ public class EspecieController implements Serializable {
 		this.especie = especie;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -73,7 +73,7 @@ public class EspecieController implements Serializable {
 	}
 
 	public void eliminarEspecie(ActionEvent event) {
-		int idEspecie = (int)event.getComponent().getAttributes().get("idEspecie");
+		Long idEspecie = (Long)event.getComponent().getAttributes().get("idEspecie");
 		especieService.eliminar(idEspecie);
 	}
 

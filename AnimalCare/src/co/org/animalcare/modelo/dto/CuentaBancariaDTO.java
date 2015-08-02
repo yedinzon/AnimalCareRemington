@@ -24,7 +24,7 @@ public class CuentaBancariaDTO implements java.io.Serializable {
 	//Corresponde al código para la cuenta bancaria de la entidad
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde al código de la entidad al que se asocia la cuenta
 	@Column(name = "NM_CODIGO_ENTIDAD")
@@ -46,10 +46,10 @@ public class CuentaBancariaDTO implements java.io.Serializable {
 	@Column(name = "NM_NUMERO_CUENTA")
 	private Long numeroCuenta;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public EntidadDTO getEntidad() {

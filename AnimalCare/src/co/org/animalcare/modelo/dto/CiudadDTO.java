@@ -26,7 +26,7 @@ public class CiudadDTO implements java.io.Serializable {
 	//Corresponde al código de la ciudad
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde al nombre de la ciudad
 	@Column(name = "NV_NOMBRE")
@@ -38,12 +38,12 @@ public class CiudadDTO implements java.io.Serializable {
 	private DepartamentoDTO departamento;
 
 	@Column(name = "NM_CODIGO_DEPARTAMENTO")
-	private int codigoDepartamento;
+	private Long codigoDepartamento;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
@@ -58,10 +58,10 @@ public class CiudadDTO implements java.io.Serializable {
 	public void setDepartamento(DepartamentoDTO departamento) {
 		this.departamento = departamento;
 	}
-//	public int getCodigoDepartamento() {
-//		return codigoDepartamento;
-//	}
-//	public void setCodigoDepartamento(int codigoDepartamento) {
-//		this.codigoDepartamento = codigoDepartamento;
-//	}
+	public Long getCodigoDepartamento() {
+		return codigoDepartamento;
+	}
+	public void setCodigoDepartamento(Long codigoDepartamento) {
+		this.codigoDepartamento = codigoDepartamento;
+	}
 }

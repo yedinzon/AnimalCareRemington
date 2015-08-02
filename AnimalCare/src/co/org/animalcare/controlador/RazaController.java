@@ -28,7 +28,7 @@ public class RazaController implements Serializable {
   
     private List<RazaDTO> listaRazas;
     private RazaDTO raza =new RazaDTO();    
-    private int codigo;
+    private Long codigo;
     private String nombre;
     private EspecieDTO especie;
 
@@ -58,11 +58,11 @@ public class RazaController implements Serializable {
 		this.raza = raza;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -83,7 +83,7 @@ public class RazaController implements Serializable {
 	}
 
 	public void eliminarRaza(ActionEvent event) {
-		int idRaza = (int)event.getComponent().getAttributes().get("idRaza");
+		Long idRaza = (Long)event.getComponent().getAttributes().get("idRaza");
 		razaService.eliminar(idRaza);
 	}
 

@@ -27,7 +27,7 @@ public class CategoriaService {
         return categoriaDao.findAll();
     }
     @Transactional
-    public void eliminar(int idCategoria) {
+    public void eliminar(Long idCategoria) {
     	CategoriaDTO categoriaC=categoriaDao.findOne(idCategoria);
     	if(categoriaC!=null)
     		categoriaDao.delete(categoriaC);
@@ -45,7 +45,7 @@ public class CategoriaService {
     }
     
     @Transactional
-    public CategoriaDTO consultar(int idCategoria) {
+    public CategoriaDTO consultar(Long idCategoria) {
     	CategoriaDTO categoriaC=categoriaDao.findOne(idCategoria);
     	return categoriaC;    	
     }

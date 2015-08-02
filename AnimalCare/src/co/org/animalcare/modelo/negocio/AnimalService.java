@@ -27,7 +27,7 @@ public class AnimalService {
         return animalDao.findAll();
     }
     @Transactional
-    public void eliminar(int idAnimal) {
+    public void eliminar(Long idAnimal) {
     	AnimalDTO animalC=animalDao.findOne(idAnimal);
     	if(animalC!=null)
     		animalDao.delete(animalC);
@@ -45,7 +45,7 @@ public class AnimalService {
     }
     
     @Transactional
-    public AnimalDTO consultar(int idAnimal) {
+    public AnimalDTO consultar(Long idAnimal) {
     	AnimalDTO animalC=animalDao.findOne(idAnimal);
     	return animalC;    	
     }

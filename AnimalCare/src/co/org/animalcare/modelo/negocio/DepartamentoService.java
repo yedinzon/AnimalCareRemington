@@ -27,13 +27,13 @@ public class DepartamentoService {
     }
     
     @Transactional
-    public List<DepartamentoDTO> listDepartamentoPorPais(int codigo) {
+    public List<DepartamentoDTO> listDepartamentoPorPais(Long codigo) {
         return departamentoDao.findAll(codigo, "nm_codigo_pais");
     }
     
     
     @Transactional
-    public void eliminar(int idDepartamento) {
+    public void eliminar(Long idDepartamento) {
     	DepartamentoDTO departamentoC=departamentoDao.findOne(idDepartamento);
     	if(departamentoC!=null)
     		departamentoDao.delete(departamentoC);
@@ -51,7 +51,7 @@ public class DepartamentoService {
     }
     
     @Transactional
-    public DepartamentoDTO consultar(int idDepartamento) {
+    public DepartamentoDTO consultar(Long idDepartamento) {
     	DepartamentoDTO departamentoC=departamentoDao.findOne(idDepartamento);
     	return departamentoC;    	
     }

@@ -27,7 +27,7 @@ public class BancoService {
         return bancoDao.findAll();
     }
     @Transactional
-    public void eliminar(int idBanco) {
+    public void eliminar(Long idBanco) {
     	BancoDTO bancoC=bancoDao.findOne(idBanco);
     	if(bancoC!=null)
     		bancoDao.delete(bancoC);
@@ -45,7 +45,7 @@ public class BancoService {
     }
     
     @Transactional
-    public BancoDTO consultar(int idBanco) {
+    public BancoDTO consultar(Long idBanco) {
     	BancoDTO bancoC=bancoDao.findOne(idBanco);
     	return bancoC;    	
     }

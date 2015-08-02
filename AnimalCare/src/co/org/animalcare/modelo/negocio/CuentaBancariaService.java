@@ -27,7 +27,7 @@ public class CuentaBancariaService {
         return cuentaBancariaDao.findAll();
     }
     @Transactional
-    public void eliminar(int idCuentaBancaria) {
+    public void eliminar(Long idCuentaBancaria) {
     	CuentaBancariaDTO cuentaBancariaC=cuentaBancariaDao.findOne(idCuentaBancaria);
     	if(cuentaBancariaC!=null)
     		cuentaBancariaDao.delete(cuentaBancariaC);
@@ -45,7 +45,7 @@ public class CuentaBancariaService {
     }
     
     @Transactional
-    public CuentaBancariaDTO consultar(int idCuentaBancaria) {
+    public CuentaBancariaDTO consultar(Long idCuentaBancaria) {
     	CuentaBancariaDTO cuentaBancariaC=cuentaBancariaDao.findOne(idCuentaBancaria);
     	return cuentaBancariaC;    	
     }

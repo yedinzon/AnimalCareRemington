@@ -27,7 +27,7 @@ public class VacunaService {
         return vacunaDao.findAll();
     }
     @Transactional
-    public void eliminar(int idVacuna) {
+    public void eliminar(Long idVacuna) {
     	VacunaDTO vacunaC=vacunaDao.findOne(idVacuna);
     	if(vacunaC!=null)
     		vacunaDao.delete(vacunaC);
@@ -45,7 +45,7 @@ public class VacunaService {
     }
     
     @Transactional
-    public VacunaDTO consultar(int idVacuna) {
+    public VacunaDTO consultar(Long idVacuna) {
     	VacunaDTO vacunaC=vacunaDao.findOne(idVacuna);
     	return vacunaC;    	
     }

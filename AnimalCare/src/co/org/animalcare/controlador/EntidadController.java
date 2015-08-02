@@ -30,23 +30,23 @@ public class EntidadController implements Serializable {
 	@ManagedProperty(value="#{entidadService}")
     private EntidadService entidadService;
   
-    private List<EntidadDTO> listaEntidades;
-    private EntidadDTO entidad;    
-    private int codigo;
-    private String nombre;
-    private CiudadDTO ciudad;
-    private int codigoCiudad;
-    private String direccion;
-    private CategoriaDTO categoria;
-    private int codigoCategoria;
-    private String nombreContacto;
-    private String apellidoContacto;
-    private String telefono;
-    private String email;
-    private String clave;
+    private List<EntidadDTO> listaEntidades = null;
+    private EntidadDTO entidad = null;    
+    private Long codigo = null;
+    private String nombre = null;
+    private CiudadDTO ciudad = null;
+    private Long codigoCiudad = null;
+    private String direccion = null;
+    private CategoriaDTO categoria = null;
+    private Long codigoCategoria = null;
+    private String nombreContacto = null;
+    private String apellidoContacto = null;
+    private String telefono = null;
+    private String email = null;
+    private String clave = null;
     private String estado="EN ESPERA";
-    private Calendar calendar= Calendar.getInstance(); 
-	private String fechaCreacion= calendar.get(Calendar.YEAR)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.DATE)+" "+calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+":"+calendar.get(Calendar.SECOND);
+    private Calendar calendar; 
+	private String fechaCreacion;
 	private List<String> estados;
 	
 
@@ -89,11 +89,11 @@ public class EntidadController implements Serializable {
 		this.entidad = entidad;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -113,11 +113,11 @@ public class EntidadController implements Serializable {
 		this.ciudad = ciudad;
 	}
 
-	public int getCodigoCiudad() {
+	public Long getCodigoCiudad() {
 		return codigoCiudad;
 	}
 
-	public void setCodigoCiudad(int codigoCiudad) {
+	public void setCodigoCiudad(Long codigoCiudad) {
 		this.codigoCiudad = codigoCiudad;
 	}
 
@@ -137,11 +137,11 @@ public class EntidadController implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public int getCodigoCategoria() {
+	public Long getCodigoCategoria() {
 		return codigoCategoria;
 	}
 
-	public void setCodigoCategoria(int codigoCategoria) {
+	public void setCodigoCategoria(Long codigoCategoria) {
 		this.codigoCategoria = codigoCategoria;
 	}
 
@@ -202,13 +202,14 @@ public class EntidadController implements Serializable {
 	}
 
 	public void eliminarEntidad(ActionEvent event) {
-		int idEntidad = (int)event.getComponent().getAttributes().get("idEntidad");
+		Long idEntidad = (Long)event.getComponent().getAttributes().get("idEntidad");
 		entidadService.eliminar(idEntidad);
 	}
 
 	public void guardarEntidad(ActionEvent event) {
+		calendar= Calendar.getInstance(); 
+		fechaCreacion = calendar.get(Calendar.YEAR)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.DATE)+" "+calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+":"+calendar.get(Calendar.SECOND);
 		EntidadDTO ent = new EntidadDTO();
-		//ent.setCodigo(codigo);
 		ent.setNombre(nombre);
 		ent.setCodigoCiudad(codigoCiudad);
 		ent.setDireccion(direccion);
@@ -232,8 +233,8 @@ public class EntidadController implements Serializable {
 		this.telefono = null;
 		this.email = null;
 		this.clave = null;
-		this.codigoCategoria = 0;
-		this.codigoCiudad = 0;
+		this.codigoCategoria = null;
+		this.codigoCiudad = null;
 	}
 
 }

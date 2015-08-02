@@ -29,7 +29,7 @@ public class PaisController implements Serializable {
   
     private List<PaisDTO> listaPaises;
     private PaisDTO pais;    
-    private int codigo;
+    private Long codigo;
     private String nombre;		
 	
 	public PaisService getPaisService() {
@@ -58,12 +58,11 @@ public class PaisController implements Serializable {
 		this.pais = pais;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
-		System.out.println("Código pais= "+codigo);
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -76,7 +75,7 @@ public class PaisController implements Serializable {
 	}
 
 	public void eliminarPais(ActionEvent event) {
-		int idPais = (int)event.getComponent().getAttributes().get("idPais");
+		Long idPais = (Long)event.getComponent().getAttributes().get("idPais");
 		paisService.eliminar(idPais);
 	}
 

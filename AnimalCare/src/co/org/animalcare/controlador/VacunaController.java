@@ -27,7 +27,7 @@ public class VacunaController implements Serializable {
   
     private List<VacunaDTO> listaVacunas;
     private VacunaDTO vacuna =new VacunaDTO();    
-    private int codigo;
+    private Long codigo;
     private String nombre;
 
 	public VacunaService getVacunaService() {
@@ -56,11 +56,11 @@ public class VacunaController implements Serializable {
 		this.vacuna = vacuna;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -73,7 +73,7 @@ public class VacunaController implements Serializable {
 	}
 
 	public void eliminarVacuna(ActionEvent event) {
-		int idVacuna = (int)event.getComponent().getAttributes().get("idVacuna");
+		Long idVacuna = (Long)event.getComponent().getAttributes().get("idVacuna");
 		vacunaService.eliminar(idVacuna);
 	}
 

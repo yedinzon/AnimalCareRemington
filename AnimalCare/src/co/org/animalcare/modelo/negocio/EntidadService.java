@@ -27,7 +27,7 @@ public class EntidadService {
         return entidadDao.findAll();
     }
     @Transactional
-    public void eliminar(int idEntidad) {
+    public void eliminar(Long idEntidad) {
     	EntidadDTO entidadC=entidadDao.findOne(idEntidad);
     	if(entidadC!=null)
     		entidadDao.delete(entidadC);
@@ -45,7 +45,7 @@ public class EntidadService {
     }
     
     @Transactional
-    public EntidadDTO consultar(int idEntidad) {
+    public EntidadDTO consultar(Long idEntidad) {
     	EntidadDTO entidadC=entidadDao.findOne(idEntidad);
     	return entidadC;    	
     }

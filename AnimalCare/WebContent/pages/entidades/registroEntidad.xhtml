@@ -11,18 +11,18 @@
 
 </h:head>
 <h:body>
-	
 	<ui:composition template="/pages/shared/template.xhtml">
 
-		<ui:define name="content">		
+		<ui:define name="content">
+			<f:facet name="header">
+						<p:outputLabel value="Registro de entidad" />
+					</f:facet>
 
-			<h:form style="margin-left:auto;margin-right:auto;width:50%">			
+			<h:form style="margin-left:auto;margin-right:auto;width:50%">
 
 				<p:panelGrid id="panel" columns="2">
 
-					<f:facet name="header">
-						<p:outputLabel value="Registro de entidad" />
-					</f:facet>
+					
 
 					<p:column>
 
@@ -37,22 +37,40 @@
 								<f:validateLength minimum="2" />
 							</p:inputText>
 							<p:message for="nombre" display="icon" />
+
+
+							<!-- <h:outputText value="Pais:" />
+				            <p:selectOneMenu id="pais" value="#{paisController.pais}">
+				                <f:selectItem itemLabel="Seleccione el Pais" itemValue="#{null}" noSelectionOption="true" />
+				                <f:selectItems value="#{paisController.listaPaises}" var="pais" itemLabel="#{pais.nombre}"/>
+				            </p:selectOneMenu>
+							<p:message for="pais" display="icon" />
+
+							<p:outputLabel value="Departamento: " />
+							<p:selectOneMenu>
+								<f:selectItem itemLabel="Seleccione un departamento"
+									itemValue="#{null}" noSelectionOption="true" />
+								<f:selectItems value="#{departamentoController.listaDepartamentos}"
+									var="departamento" itemLabel="#{departamento.nombre}"
+									itemValue="#{departamento.codigo}" />
+								<f:ajax event="valueChange" render="c" />
+							</p:selectOneMenu>-->
 							
 							<!-- <h:outputText value="Pais:" />
-				            <p:selectOneMenu id="pais" value="#{departamentoController.codigoPais}">				            
+				            <p:selectOneMenu id="pais" value="#{departamentoController.codigoPais}">
 				           	<f:selectItem itemLabel="Seleccione el Pais" itemValue="#{null}" noSelectionOption="true" />
-				            <f:selectItems value="#{paisController.listaPaises}" var="pais" itemLabel="#{pais.nombre}" itemValue="#{pais.codigo}" />				           
-				            <p:ajax update="departamento" />				            				            	
+				            <f:selectItems value="#{paisController.listaPaises}" var="pais" itemLabel="#{pais.nombre}" itemValue="#{pais.codigo}" />
+				            <p:ajax update="departamento" />	
 				            </p:selectOneMenu>
-							<p:message for="pais" display="icon" />	 -->					
+							<p:message for="pais" display="icon" /> -->
 
 							<h:outputText value="Departamento: " />
 							<p:selectOneMenu id="departamento" value="#{ciudadController.codigoDepartamento}">
 			                <f:selectItem itemLabel="Seleccione el Departamento" itemValue="#{null}" noSelectionOption="true" />
 			                <f:selectItems value="#{departamentoController.listaDepartamentos}" var="departamento" itemLabel="#{departamento.nombre}" itemValue="#{departamento.codigo}"/>
-			                <p:ajax update="ciudad" />			               
+			                <p:ajax update="ciudad"/>
 			            	</p:selectOneMenu> 
-			            	<p:message for="departamento" display="icon" />
+			            	
 
 
 							<h:outputText value="Ciudad: " />
@@ -129,19 +147,20 @@
 							</p:password>
 							<p:message for="clave" id="msgClave" display="icon" />
 
-						</h:panelGrid>					
+						</h:panelGrid>
 
 						<p:commandButton value="Guardar" update="panel" resetValues="true"
 							actionListener="#{entidadController.guardarEntidad}"
-							icon="ui-icon-check"  />					
+							icon="ui-icon-check" />
 
 					</p:column>
 
-				</p:panelGrid>				
+				</p:panelGrid>
 
 			</h:form>
-		</ui:define>
-	</ui:composition>
 
+		</ui:define>
+
+	</ui:composition>
 </h:body>
 </html>

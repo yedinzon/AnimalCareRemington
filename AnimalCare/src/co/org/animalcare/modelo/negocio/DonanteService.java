@@ -27,7 +27,7 @@ public class DonanteService {
         return donanteDao.findAll();
     }
     @Transactional
-    public void eliminar(int idDonante) {
+    public void eliminar(Long idDonante) {
     	DonanteDTO donanteC=donanteDao.findOne(idDonante);
     	if(donanteC!=null)
     		donanteDao.delete(donanteC);
@@ -45,7 +45,7 @@ public class DonanteService {
     }
     
     @Transactional
-    public DonanteDTO consultar(int idDonante) {
+    public DonanteDTO consultar(Long idDonante) {
     	DonanteDTO donanteC=donanteDao.findOne(idDonante);
     	return donanteC;    	
     }

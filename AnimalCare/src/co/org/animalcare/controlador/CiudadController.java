@@ -30,10 +30,10 @@ public class CiudadController implements Serializable {
   
     private List<CiudadDTO> listaCiudades;
 	private CiudadDTO ciudadDTO;
-    private int codigo;
+    private Long codigo;
     private String nombre;
     private DepartamentoDTO departamento;
-    private int codigoDepartamento;
+    private Long codigoDepartamento;
     private List<CiudadDTO> listaCiudadesPorDepartamento;
 
 	public CiudadService getCiudadService() {
@@ -44,13 +44,11 @@ public class CiudadController implements Serializable {
 		this.ciudadService = ciudadService;
 	}
 	
-	public int getCodigoDepartamento() {
-		System.out.println("Get "+codigoDepartamento);
+	public Long getCodigoDepartamento() {
 		return codigoDepartamento;
 	}
 
-	public void setCodigoDepartamento(int codigoDepartamento) {
-		System.out.println("Set "+codigoDepartamento);
+	public void setCodigoDepartamento(Long codigoDepartamento) {
 		this.codigoDepartamento = codigoDepartamento;
 		
 	}
@@ -83,11 +81,11 @@ public class CiudadController implements Serializable {
 		this.ciudadDTO = ciudadDTO;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -108,7 +106,7 @@ public class CiudadController implements Serializable {
 	}
 
 	public void eliminarCiudad(ActionEvent event) {
-		int idCiudad = (int)event.getComponent().getAttributes().get("idCiudad");
+		Long idCiudad = (Long)event.getComponent().getAttributes().get("idCiudad");
 		ciudadService.eliminar(idCiudad);
 	}
 

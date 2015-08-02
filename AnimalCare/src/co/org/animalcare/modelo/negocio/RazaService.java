@@ -27,7 +27,7 @@ public class RazaService {
         return razaDao.findAll();
     }
     @Transactional
-    public void eliminar(int idRaza) {
+    public void eliminar(Long idRaza) {
     	RazaDTO razaC=razaDao.findOne(idRaza);
     	if(razaC!=null)
     		razaDao.delete(razaC);
@@ -45,7 +45,7 @@ public class RazaService {
     }
     
     @Transactional
-    public RazaDTO consultar(int idRaza) {
+    public RazaDTO consultar(Long idRaza) {
     	RazaDTO razaC=razaDao.findOne(idRaza);
     	return razaC;    	
     }

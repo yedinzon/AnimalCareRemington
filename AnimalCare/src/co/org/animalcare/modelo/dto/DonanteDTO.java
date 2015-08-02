@@ -24,7 +24,7 @@ public class DonanteDTO implements java.io.Serializable {
 	//Corresponde al código del donante
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde a los nombres del donante
 	@Column(name = "NV_NOMBRES")
@@ -42,10 +42,10 @@ public class DonanteDTO implements java.io.Serializable {
 	@Column(name = "NV_CLAVE")
 	private String clave;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombres() {

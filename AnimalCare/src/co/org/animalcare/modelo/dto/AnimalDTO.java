@@ -24,7 +24,7 @@ public class AnimalDTO implements java.io.Serializable {
 	//Corresponde al código de un animal
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde a un comentario que se desee agregar sobre el animal
 	@Column(name = "NV_COMENTARIO")
@@ -64,10 +64,10 @@ public class AnimalDTO implements java.io.Serializable {
 	@Column(name = "NV_TAMANO")
 	private String tamano;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public String getComentario() {

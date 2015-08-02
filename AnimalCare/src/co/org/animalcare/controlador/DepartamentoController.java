@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,6 @@ import co.org.animalcare.modelo.negocio.DepartamentoService;
 
 @Controller
 @ManagedBean(name="departamentoController")
-@ViewScoped
 public class DepartamentoController implements Serializable {
 
 	/**
@@ -30,12 +28,12 @@ public class DepartamentoController implements Serializable {
 	
   
     private List<DepartamentoDTO> listaDepartamentos;
-    private DepartamentoDTO departamento;    
-    private int codigo;
-    private String nombre;
-    private PaisDTO pais;
-    private int codigoPais;
-	private List<DepartamentoDTO> listaDepartamentosPorPais;	
+    private DepartamentoDTO departamento = null;    
+    private Long codigo = null;
+    private String nombre = null;
+    private PaisDTO pais = null;
+    private Long codigoPais = null;
+	private List<DepartamentoDTO> listaDepartamentosPorPais = null;	
     
 	public DepartamentoService getDepartamentoService() {
 		return departamentoService;
@@ -45,12 +43,12 @@ public class DepartamentoController implements Serializable {
 		this.departamentoService = departamentoService;
 	}
 	
-	public int getCodigoPais() {
+	public Long getCodigoPais() {
 		return codigoPais;
 		
 	}
 
-	public void setCodigoPais(int codigoPais) {		
+	public void setCodigoPais(Long codigoPais) {		
 		this.codigoPais = codigoPais;
 	}
 	
@@ -84,12 +82,12 @@ public class DepartamentoController implements Serializable {
 		this.departamento = departamento;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
-		System.out.println("Código dep= "+codigo);
+	public void setCodigo(Long codigo) {
+
 		this.codigo = codigo;
 	}
 
@@ -110,7 +108,7 @@ public class DepartamentoController implements Serializable {
 	}
 
 	public void eliminarDepartamento(ActionEvent event) {
-		int idDepartamento = (int)event.getComponent().getAttributes().get("idDepartamento");
+		Long idDepartamento = (Long)event.getComponent().getAttributes().get("idDepartamento");
 		departamentoService.eliminar(idDepartamento);
 	}
 	

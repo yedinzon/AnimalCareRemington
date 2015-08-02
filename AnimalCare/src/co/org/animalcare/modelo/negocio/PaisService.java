@@ -26,7 +26,7 @@ public class PaisService {
         return paisDao.findAll();
     }
     @Transactional
-    public void eliminar(int idPais) {
+    public void eliminar(Long idPais) {
     	PaisDTO paisC=paisDao.findOne(idPais);
     	if(paisC!=null)
     		paisDao.delete(paisC);
@@ -44,7 +44,7 @@ public class PaisService {
     }
     
     @Transactional
-    public PaisDTO consultar(int idPais) {
+    public PaisDTO consultar(Long idPais) {
     	PaisDTO paisC=paisDao.findOne(idPais);
     	return paisC;    	
     }

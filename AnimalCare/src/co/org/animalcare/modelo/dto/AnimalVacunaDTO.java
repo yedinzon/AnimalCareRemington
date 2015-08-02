@@ -24,7 +24,7 @@ public class AnimalVacunaDTO implements java.io.Serializable {
 	//Corresponde al código del registro
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde al código del animal
 	@Column(name = "NM_CODIGO_ANIMAL")
@@ -34,10 +34,10 @@ public class AnimalVacunaDTO implements java.io.Serializable {
 	@Column(name = "NM_CODIGO_VACUNA")
 	private VacunaDTO vacuna;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public AnimalDTO getAnimal() {

@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,8 +29,9 @@ public class EntidadDTO implements java.io.Serializable {
 
 	//Corresponde al código de la entidad
 	@Id
+	@GeneratedValue
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde al nombre de la entidad
 	@Column(name = "NV_NOMBRE")
@@ -41,7 +43,7 @@ public class EntidadDTO implements java.io.Serializable {
 	private CiudadDTO ciudad;
 
 	@Column(name = "NM_CODIGO_CIUDAD")
-	private int codigoCiudad;
+	private Long codigoCiudad;
 	
 	//Corresponde a la dirección de la entidad
 	@Column(name = "NV_DIRECCION")
@@ -53,7 +55,7 @@ public class EntidadDTO implements java.io.Serializable {
 	private CategoriaDTO categoria;
 	
 	@Column(name="NM_CODIGO_CATEGORIA")
-	private int codigoCategoria;
+	private Long codigoCategoria;
 	
 	//Corresponde al nombre del contacto de la entidad
 	@Column(name = "NV_NOMBRE_CONTACTO")
@@ -85,10 +87,10 @@ public class EntidadDTO implements java.io.Serializable {
 	@OneToMany(mappedBy="entidad")
 	private List<AnimalDTO> listaAnimales;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
@@ -103,10 +105,10 @@ public class EntidadDTO implements java.io.Serializable {
 	public void setCiudad(CiudadDTO ciudad) {
 		this.ciudad = ciudad;
 	}
-	public int getCodigoCiudad() {
+	public Long getCodigoCiudad() {
 		return codigoCiudad;
 	}
-	public void setCodigoCiudad(int codigoCiudad) {
+	public void setCodigoCiudad(Long codigoCiudad) {
 		this.codigoCiudad = codigoCiudad;
 	}
 	public String getDireccion() {
@@ -169,10 +171,10 @@ public class EntidadDTO implements java.io.Serializable {
 	public void setListaAnimales(List<AnimalDTO> listaAnimales) {
 		this.listaAnimales = listaAnimales;
 	}
-	public int getCodigoCategoria() {
+	public Long getCodigoCategoria() {
 		return codigoCategoria;
 	}
-	public void setCodigoCategoria(int codigoCategoria) {
+	public void setCodigoCategoria(Long codigoCategoria) {
 		this.codigoCategoria = codigoCategoria;		
 	}
 	

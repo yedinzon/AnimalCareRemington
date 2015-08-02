@@ -30,7 +30,7 @@ public abstract class JpaDAO<T extends Serializable> {
 		this.clazz = clazzToSet;
 	}
 
-	public T findOne(final int id) {		
+	public T findOne(final Long id) {		
 //		T ent = entityManager.find(clazz, id);
 //		if(ent != null) {
 //			session = entityManager.unwrap(Session.class);
@@ -38,7 +38,11 @@ public abstract class JpaDAO<T extends Serializable> {
 //			session.update(ent);
 //		}		
 //		return ent;
-		return entityManager.find(clazz, id);
+		try {
+			return entityManager.find(clazz, id);
+		} catch (Exception e) {
+			return null;
+		}		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -49,7 +53,7 @@ public abstract class JpaDAO<T extends Serializable> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> findAll(int codigo, String columna) {
+	public List<T> findAll(Long codigo, String columna) {
 		System.err.println(entityManager);
 		System.out.println(codigo + " - " + columna);
 		return entityManager.createQuery(

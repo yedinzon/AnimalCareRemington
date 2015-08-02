@@ -31,7 +31,7 @@ public class DepartamentoDTO implements java.io.Serializable {
 	//Corresponde al código del departamento
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde al nombre del departamento
 	@Column(name = "NV_NOMBRE")
@@ -63,10 +63,10 @@ public class DepartamentoDTO implements java.io.Serializable {
 		listaCiudades.add(d);
     }
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {

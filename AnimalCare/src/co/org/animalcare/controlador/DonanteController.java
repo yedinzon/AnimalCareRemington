@@ -27,7 +27,7 @@ public class DonanteController implements Serializable {
   
     private List<DonanteDTO> listaDonantes;
     private DonanteDTO donante =new DonanteDTO();    
-    private int codigo;
+    private Long codigo;
     private String nombres;
     private String apellidos;
     private String email;
@@ -59,11 +59,11 @@ public class DonanteController implements Serializable {
 		this.donante = donante;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -100,7 +100,7 @@ public class DonanteController implements Serializable {
 	}
 
 	public void eliminarDonante(ActionEvent event) {
-		int idDonante = (int)event.getComponent().getAttributes().get("idDonante");
+		Long idDonante = (Long)event.getComponent().getAttributes().get("idDonante");
 		donanteService.eliminar(idDonante);
 	}
 

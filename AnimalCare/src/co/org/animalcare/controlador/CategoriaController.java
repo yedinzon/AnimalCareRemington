@@ -27,7 +27,7 @@ public class CategoriaController implements Serializable {
   
     private List<CategoriaDTO> listaCategorias;
     private CategoriaDTO categoria =new CategoriaDTO();    
-    private int codigo;
+    private Long codigo;
     private String nombre;
 	
 
@@ -57,11 +57,11 @@ public class CategoriaController implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -74,7 +74,7 @@ public class CategoriaController implements Serializable {
 	}
 
 	public void eliminarCategoria(ActionEvent event) {
-		int idCategoria = (int)event.getComponent().getAttributes().get("idCategoria");
+		Long idCategoria = (Long)event.getComponent().getAttributes().get("idCategoria");
 		categoriaService.eliminar(idCategoria);
 	}
 

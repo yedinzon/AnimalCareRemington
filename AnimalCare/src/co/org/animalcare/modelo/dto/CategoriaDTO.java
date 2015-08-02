@@ -24,16 +24,16 @@ public class CategoriaDTO implements java.io.Serializable {
 	//Corresponde al código de la categoría
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde al nombre de la categoría
 	@Column(name = "NV_NOMBRE")
 	private String nombre;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {

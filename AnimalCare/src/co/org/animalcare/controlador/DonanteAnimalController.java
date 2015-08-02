@@ -29,7 +29,7 @@ public class DonanteAnimalController implements Serializable {
   
     private List<DonanteAnimalDTO> listaDonantesAnimales;
     private DonanteAnimalDTO donanteAnimal =new DonanteAnimalDTO();    
-    private int codigo;
+    private Long codigo;
     private DonanteDTO donante;
     private AnimalDTO animal;
     private boolean estado;
@@ -61,11 +61,11 @@ public class DonanteAnimalController implements Serializable {
 		this.donanteAnimal = donanteAnimal;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -94,7 +94,7 @@ public class DonanteAnimalController implements Serializable {
 	}
 
 	public void eliminarDonanteAnimal(ActionEvent event) {
-		int idDonanteAnimal = (int)event.getComponent().getAttributes().get("idDonanteAnimal");
+		Long idDonanteAnimal = (Long)event.getComponent().getAttributes().get("idDonanteAnimal");
 		donanteAnimalService.eliminar(idDonanteAnimal);
 	}
 

@@ -29,7 +29,7 @@ public class CuentaBancariaController implements Serializable {
   
     private List<CuentaBancariaDTO> listaCuentasBancarias;
     private CuentaBancariaDTO cuentaBancaria =new CuentaBancariaDTO();    
-    private int codigo;
+    private Long codigo;
     private EntidadDTO entidad;
     private BancoDTO banco;
     private String tipo;
@@ -63,11 +63,11 @@ public class CuentaBancariaController implements Serializable {
 		this.cuentaBancaria = cuentaBancaria;
 	}
 
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -112,7 +112,7 @@ public class CuentaBancariaController implements Serializable {
 	}
 
 	public void eliminarCuentaBancaria(ActionEvent event) {
-		int idCuentaBancaria = (int)event.getComponent().getAttributes().get("idCuentaBancaria");
+		Long idCuentaBancaria = (Long)event.getComponent().getAttributes().get("idCuentaBancaria");
 		cuentaBancariaService.eliminar(idCuentaBancaria);
 	}
 

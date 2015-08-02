@@ -22,12 +22,11 @@ public class EspecieService {
     }
  
     @Transactional
-    public List<EspecieDTO> listEspecie() {
- 
+    public List<EspecieDTO> listEspecie() { 
         return especieDao.findAll();
     }
     @Transactional
-    public void eliminar(int idEspecie) {
+    public void eliminar(Long idEspecie) {
     	EspecieDTO especieC=especieDao.findOne(idEspecie);
     	if(especieC!=null)
     		especieDao.delete(especieC);
@@ -45,7 +44,7 @@ public class EspecieService {
     }
     
     @Transactional
-    public EspecieDTO consultar(int idEspecie) {
+    public EspecieDTO consultar(Long idEspecie) {
     	EspecieDTO especieC=especieDao.findOne(idEspecie);
     	return especieC;    	
     }

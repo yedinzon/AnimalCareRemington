@@ -27,7 +27,7 @@ public class AnimalVacunaService {
         return animalVacunaDao.findAll();
     }
     @Transactional
-    public void eliminar(int idAnimalVacuna) {
+    public void eliminar(Long idAnimalVacuna) {
     	AnimalVacunaDTO animalVacunaC=animalVacunaDao.findOne(idAnimalVacuna);
     	if(animalVacunaC!=null)
     		animalVacunaDao.delete(animalVacunaC);
@@ -45,7 +45,7 @@ public class AnimalVacunaService {
     }
     
     @Transactional
-    public AnimalVacunaDTO consultar(int idAnimalVacuna) {
+    public AnimalVacunaDTO consultar(Long idAnimalVacuna) {
     	AnimalVacunaDTO animalVacunaC=animalVacunaDao.findOne(idAnimalVacuna);
     	return animalVacunaC;    	
     }

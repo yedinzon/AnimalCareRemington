@@ -28,13 +28,12 @@ public class CiudadService {
     }
     
     @Transactional
-    public List<CiudadDTO> listCiudadesPorDepartamento(int codigo) {
-    	System.out.println(ciudadDao.findAll(codigo, "nm_codigo_departamento"));
+    public List<CiudadDTO> listCiudadesPorDepartamento(Long codigo) {
         return ciudadDao.findAll(codigo, "nm_codigo_departamento");
     }
     
     @Transactional
-    public void eliminar(int idCiudad) {
+    public void eliminar(Long idCiudad) {
     	CiudadDTO ciudadC=ciudadDao.findOne(idCiudad);
     	if(ciudadC!=null)
     		ciudadDao.delete(ciudadC);
@@ -52,7 +51,7 @@ public class CiudadService {
     }
     
     @Transactional
-    public CiudadDTO consultar(int idCiudad) {
+    public CiudadDTO consultar(Long idCiudad) {
     	CiudadDTO ciudadC=ciudadDao.findOne(idCiudad);
     	return ciudadC;    	
     }

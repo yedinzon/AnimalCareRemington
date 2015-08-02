@@ -25,7 +25,7 @@ public class DonanteAnimalDTO implements java.io.Serializable {
 	//Corresponde al código del registro
 	@Id
 	@Column(name = "NM_CODIGO")
-	private int codigo;
+	private Long codigo;
 	
 	//Corresponde al código del donante
 	@Column(name = "NM_CODIGO_DONANTE")
@@ -39,10 +39,10 @@ public class DonanteAnimalDTO implements java.io.Serializable {
 	@Column(name = "BO_ESTADO")
 	private boolean estado;
 	
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public DonanteDTO getDonante() {
