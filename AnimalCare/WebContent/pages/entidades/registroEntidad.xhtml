@@ -16,7 +16,7 @@
 		<ui:define name="content">
 			<f:facet name="header">
 						<p:outputLabel value="Registro de entidad" />
-					</f:facet>
+			</f:facet>
 
 			<h:form style="margin-left:auto;margin-right:auto;width:50%">
 
@@ -152,15 +152,10 @@
 						<p:commandButton value="Guardar" update="panel" resetValues="true"
 							actionListener="#{entidadController.guardarEntidad}"
 							icon="ui-icon-check" />
-
 					</p:column>
-
 				</p:panelGrid>
-
 			</h:form>
-
 		</ui:define>
-
 	</ui:composition>
 </h:body>
 </html>

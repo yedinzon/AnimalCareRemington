@@ -5,6 +5,7 @@ package co.org.animalcare.modelo.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -23,6 +24,7 @@ public class DonanteDTO implements java.io.Serializable {
 
 	//Corresponde al código del donante
 	@Id
+	@GeneratedValue
 	@Column(name = "NM_CODIGO")
 	private Long codigo;
 	

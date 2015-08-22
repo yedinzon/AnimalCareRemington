@@ -19,7 +19,7 @@
 
 					<p:messages id="msgs" />
 
-					<h:panelGrid columns="3" cellpadding="5" id="panelGrid">
+					<h:panelGrid id="panelGrid">
 						<p:outputLabel for="nombres" value="Nombres:" />
 						<p:inputText id="nombres" size="45" value="#{donanteController.nombres}"
 							required="true" label="Nombre">
@@ -62,7 +62,7 @@
 
 					</h:panelGrid>
 
-					<p:commandButton value="Guardar" update="panelGrid"
+					<p:commandButton value="Guardar" update="panelGrid" resetValues="true"
 						actionListener="#{donanteController.guardarDonante}"
 						icon="ui-icon-check" />
 				</p:panel>
