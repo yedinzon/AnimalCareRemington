@@ -10,9 +10,9 @@ import org.primefaces.context.RequestContext;
 @ManagedBean
 public class UserLoginView {
      
-    private String username;
-     
+    private String username;     
     private String password;
+    private String tipoUsuario;
  
     public String getUsername() {
         return username;
@@ -29,6 +29,14 @@ public class UserLoginView {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	} 
    
     public void login(ActionEvent event) {
         RequestContext context = RequestContext.getCurrentInstance();
@@ -44,6 +52,6 @@ public class UserLoginView {
         }
          
         FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("loggedIn", loggedIn);           
-    }   
+        context.addCallbackParam("loggedIn", loggedIn);      
+    }	  
 }

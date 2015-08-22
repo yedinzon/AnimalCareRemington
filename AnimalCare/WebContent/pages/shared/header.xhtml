@@ -50,33 +50,33 @@
 	</h:form>
 </div>
 <div align="right">
-	
-	<h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="Iniciar sesión">
-        <h:outputText value="Iniciar Sesión" />
-    </h:outputLink>
- 
-    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
- 
-    <p:dialog header="Acceso" widgetVar="dlg" resizable="false">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Usuario:" />
-            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="usuario" />
- 
-            <h:outputLabel for="password" value="Contraseña:" />
-            <p:password id="password" value="#{userLoginView.password}" required="true" label="clave" />
-            
-            <p:selectOneRadio id="tipoUsuario">
-            	<f:selectItem itemLabel="Entidad" itemValue="entidad" />
-            	<f:selectItem itemLabel="Donante" itemValue="donante" />
-            </p:selectOneRadio>
- 
-            <f:facet name="footer">
-                <p:commandButton value="Ingresar" update="growl" actionListener="#{userLoginView.login}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:dialog>	
-		
+	<h:form>
+		<h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="Iniciar sesión">
+	        <h:outputText value="Iniciar Sesión" />
+	    </h:outputLink>
+	 
+	    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+ 	
+	    <p:dialog header="Acceso" widgetVar="dlg" resizable="false">
+	        <h:panelGrid columns="2" cellpadding="5">
+	            <h:outputLabel for="username" value="Usuario:" />
+	            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="usuario"></p:inputText>
+	 
+	            <h:outputLabel for="password" value="Contraseña:" />
+	            <p:password id="password" value="#{userLoginView.password}" required="true" label="clave"></p:password>
+	            
+	            <p:selectOneRadio id="tipoUsuario" value="#{userLoginView.tipoUsuario}" required="true">
+	            	<f:selectItem itemLabel="Entidad" itemValue="entidad"></f:selectItem>
+	            	<f:selectItem itemLabel="Donante" itemValue="donante"></f:selectItem>
+	            </p:selectOneRadio>
+	 
+	            <f:facet name="footer">
+	                <p:commandButton value="Ingresar" update="growl" actionListener="#{userLoginView.login}"
+	                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+	            </f:facet>  
+	        </h:panelGrid>
+	    </p:dialog>	
+	</h:form>	
 	<a href="/AnimalCare/pages/donantes/registroDonante.xhtml" style="color: black;font-size: 15px;">Registrarse</a>
 </div>
 </h:body>
