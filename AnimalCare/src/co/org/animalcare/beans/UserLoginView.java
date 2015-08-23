@@ -41,16 +41,16 @@ public class UserLoginView {
     public void login(ActionEvent event) {
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
-        boolean loggedIn = false;
-         
+        boolean loggedIn = false;        
+        
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
-            loggedIn = true;
+            loggedIn = true;            
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
         } else {
             loggedIn = false;
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
-        }
-         
+        }        
+        
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);      
     }	  

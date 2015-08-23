@@ -11,6 +11,7 @@ html,body{
 	position: absolute;
 	margin-top: -100px;
 	height: 100px;
+	width: 100%;
 	clear: both;
 	background-color: #2191c0;
 	text-align: center;
