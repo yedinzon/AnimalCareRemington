@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Bùsqueda</title>
+</h:head>
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<!-- Recibir parámetro -->
+			<f:metadata>
+				<f:viewParam name="codigo" value="#{animalController.codigo}" />
+			</f:metadata>
+
+			<p:layout fullPage="true">
+				<p:layoutUnit position="west" resizable="false" size="400"
+					minSize="400" styleClass="custom-ui-layout-unit">
+			        <p:graphicImage value="/images/index/New1.jpg" width="100%" />
+			    </p:layoutUnit>
+
+				<p:layoutUnit position="center" styleClass="custom-ui-layout-unit" header="Detalles">
+					<h:panelGrid id="panelGrid">
+						<ul class="planList">
+							<ui:fragment value="" var="">
+								<li><span class="custom-label">Nombre:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Edad:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Raza:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Sexo:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Tamaño:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Esterilizado:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Entidad:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Comentarios:</span> Lorem ipsum</li>								
+							</ui:fragment>
+						</ul>
+						<br />
+						<p:outputLabel styleClass="custom-label" value="Comentarios2:" />
+						<p class="custom-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis mauris sed massa placerat venenatis vitae venenatis ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ac mi lorem. Sed iaculis aliquam dolor, viverra suscipit leo</p>
+					</h:panelGrid>
+			        			        
+			    </p:layoutUnit>
+			    <p:layoutUnit position="east" resizable="false" size="300"
+					minSize="100" styleClass="custom-ui-layout-unit">
+			        
+			        <!-- Acordeón con las formas de donación -->			        
+				    <p:accordionPanel activeIndex="">
+				        <p:tab title="Apadrinar">
+				            <h:panelGrid columns="1" cellpadding="10">				                
+				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Giro"></p:link>
+				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Consignación"></p:link>
+				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Aporte personal"></p:link>
+				            </h:panelGrid>
+				        </p:tab>
+				        <p:tab title="Donar">
+				            <h:panelGrid columns="1" cellpadding="10">				                
+				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Giro"></p:link>
+				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Consignación"></p:link>
+				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Aporte personal"></p:link>
+				            </h:panelGrid>
+				        </p:tab>			        			        
+				    </p:accordionPanel>	    
+				    
+	
+					<h3 
+						onmouseover="$(this).addClass('ui-state-hover')"
+					    onmouseout="$(this).removeClass('ui-state-hover')"
+					    onmousedown="$(this).addClass('ui-state-active')"
+					    onmouseup="$(this).removeClass('ui-state-active')"
+					    onclick="urlAdoptar()"
+						class="custom-btn-accordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" 
+						role="tab" aria-expanded="false"><span style="float: left" class="ui-icon ui-icon-triangle-1-e"></span>Adoptar
+					</h3>
+				    	    
+    				<!-- Acordeón con las formas de donación -->
+			        
+			    </p:layoutUnit>
+			</p:layout>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

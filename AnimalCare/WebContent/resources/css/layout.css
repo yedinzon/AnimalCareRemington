@@ -16,3 +16,35 @@ html,body{
 	background-color: #2191c0;
 	text-align: center;
 }
+
+.ui-orderlist-list {
+	border: 0 !important;
+	width: 250px !important;
+}
+
+.custom-ui-layout-unit {
+	top: 10% !important;	
+}
+
+.custom-label {
+	font-weight: bold;	
+}
+
+.custom-justify {
+	text-align: justify;
+}
+
+li {
+	margin-bottom: 4px;
+}
+
+.custom-btn-accordion {
+	width: 100%;
+    text-align: left;
+    padding: .5em .5em .5em !important; 
+    cursor: pointer;  
+}
+
+.custom-btn-accordion:hover {
+	background: #77d5f7;
+}

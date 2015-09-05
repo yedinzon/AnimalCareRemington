@@ -19,29 +19,7 @@
 				<p:dataTable id="tbl" var="entidad"
 					value="#{entidadController.listaEntidades}"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					paginator="true" rows="10" style="margin-bottom:20px">
-
-					<f:facet name="{Exporters}">
-						<h:commandLink>
-							<p:graphicImage name="/demo/images/excel.png" width="24" />
-							<p:dataExporter type="xls" target="tbl" fileName="entidad" />
-						</h:commandLink>
-
-						<h:commandLink>
-							<p:graphicImage name="/demo/images/pdf.png" width="24" />
-							<p:dataExporter type="pdf" target="tbl" fileName="entidad" />
-						</h:commandLink>
-
-						<h:commandLink>
-							<p:graphicImage name="/demo/images/csv.png" width="24" />
-							<p:dataExporter type="csv" target="tbl" fileName="entidad" />
-						</h:commandLink>
-
-						<h:commandLink>
-							<p:graphicImage name="/demo/images/xml.png" width="24" />
-							<p:dataExporter type="xml" target="tbl" fileName="entidad" />
-						</h:commandLink>
-					</f:facet>
+					paginator="true" rows="10" style="margin-bottom:20px">					
 
 					<p:column>
 						<f:facet name="header">
@@ -72,11 +50,12 @@
 
 					<p:column>
 						<f:facet name="header">
-							<h:outputText value="Ver información" />
+							<h:outputText value="Información" />
 						</f:facet>
-						<h:commandLink>
-							<p:graphicImage value="/images/icons/details.png" width="24" />
-						</h:commandLink>
+						
+						<p:link outcome="registroEntidad.xhtml" value="Ver información">
+						    <!--<f:param name="productId" value="10" />-->
+						</p:link>
 					</p:column>
 
 					<!--  <p:column style="width:24px">

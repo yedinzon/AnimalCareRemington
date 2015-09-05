@@ -9,16 +9,19 @@
 
 <h:head>
 	<script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:5}, 100);
-        }
-        else {
-            PF('dlg').hide();
-            $('#loginLink').fadeOut();
-        }
-    }
-</script>
+	    function handleLoginRequest(xhr, status, args) {
+	        if(args.validationFailed || !args.loggedIn) {
+	            PF('dlg').jq.effect("shake", {times:5}, 100);
+	        }
+	        else {
+	            PF('dlg').hide();
+	            $('#loginLink').fadeOut();
+	        }
+	    };
+	    function urlAdoptar(){							
+			location.href = 'http://www.google.com';			
+		};
+	</script>
 </h:head>
 <h:body>
 <div>
@@ -50,13 +53,8 @@
 	</h:form>
 </div>
 <div align="right">
-	<h:form>
-		<h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="Iniciar sesión">
-	        <h:outputText value="Iniciar Sesión" />
-	    </h:outputLink>
-	 
-	    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
- 	
+	<h:form>	 
+	    <p:growl id="growl" sticky="true" showDetail="true" life="3000" /> 	
 	    <p:dialog header="Acceso" widgetVar="dlg" resizable="false">
 	        <h:panelGrid columns="2" cellpadding="5">
 	            <h:outputLabel for="username" value="Usuario:" />
@@ -76,8 +74,11 @@
 	            </f:facet>  
 	        </h:panelGrid>
 	    </p:dialog>	
-	</h:form>	
-	<a href="/AnimalCare/pages/donantes/registroDonante.xhtml" style="color: black;font-size: 15px;">Registrarse</a>
+	</h:form>
+	<h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="Iniciar sesión" style="display: inline-block">
+        <h:outputText value="Iniciar Sesión" />
+    </h:outputLink>	
+	<a href="/AnimalCare/pages/donantes/registroDonante.xhtml" style="color: black;font-size: 15px;display:inline-block">Registrarse</a>
 </div>
 </h:body>
 
