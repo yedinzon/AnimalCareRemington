@@ -50,4 +50,13 @@ public class CuentaBancariaService {
     	return cuentaBancariaC;    	
     }
 
+	/**
+	 * Obtener lista de cuentas bancarias asociadas a una entidad
+	 * @param codigoEntidad
+	 * @return
+	 */
+	public List<CuentaBancariaDTO> listarPorEntidad(Long codigoEntidad) {		
+		return cuentaBancariaDao.listarPorEntidad(codigoEntidad);
+	}
+
 }

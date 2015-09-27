@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,7 @@ public class CuentaBancariaController implements Serializable {
     private String tipo;
     private String nombreTitular;
     private Long numeroCuenta;
+    private Long codigoEntidad;
 
 	public CuentaBancariaService getCuentaBancariaService() {
 		return cuentaBancariaService;
@@ -109,6 +111,14 @@ public class CuentaBancariaController implements Serializable {
 
 	public void setNumeroCuenta(Long numeroCuenta) {
 		this.numeroCuenta = numeroCuenta;
+	}	
+
+	public Long getCodigoEntidad() {
+		return codigoEntidad;
+	}
+
+	public void setCodigoEntidad(Long codigoEntidad) {
+		this.codigoEntidad = codigoEntidad;
 	}
 
 	public void eliminarCuentaBancaria(ActionEvent event) {
@@ -126,6 +136,13 @@ public class CuentaBancariaController implements Serializable {
 		cb.setNombreTitular(nombreTitular);
 		cb.setNumeroCuenta(numeroCuenta);
 		cuentaBancariaService.guardar(cb);
-	}	
+	}
+	
+	public void cargarCuentasEntidad() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		if (!facesContext.isPostback() && !facesContext.isValidationFailed()) {
+			listaCuentasBancarias = cuentaBancariaService.listarPorEntidad(codigoEntidad);
+		}
+	}
 
 }

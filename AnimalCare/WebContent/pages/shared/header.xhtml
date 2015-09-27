@@ -18,8 +18,8 @@
 	            $('#loginLink').fadeOut();
 	        }
 	    };
-	    function urlAdoptar(){							
-			location.href = 'http://www.google.com';			
+	    function urlAdoptar(param){
+	    	window.open('/AnimalCare/pages/animales/datosUbicacion.xhtml?codigo=' + param,'_blank');
 		};
 	</script>
 </h:head>
@@ -40,7 +40,7 @@
 				<p:menuitem value="Adoptar" url="#" />
 			</p:submenu>
 
-			<p:menuitem value="Animales" url="#" />
+			<p:menuitem value="Animales" url="/pages/busqueda/animales.xhtml" />
 
 			<p:menuitem value="Entidades" url="#" />
 

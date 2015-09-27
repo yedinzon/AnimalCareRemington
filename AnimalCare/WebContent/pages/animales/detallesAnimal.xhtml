@@ -7,15 +7,16 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Bùsqueda</title>
+	<title>Búsqueda</title>
 </h:head>
 <h:body>
 	<ui:composition template="/pages/shared/template.xhtml">
 		<ui:define name="content">
 			<!-- Recibir parámetro -->
 			<f:metadata>
-				<f:viewParam name="codigo" value="#{animalController.codigo}" />
-			</f:metadata>
+				<f:viewParam name="codigo" value="#{animalController.codigo}" />				
+				<f:event listener="#{animalController.cargarAnimal}" type="preRenderView"></f:event>
+			</f:metadata>			
 
 			<p:layout fullPage="true">
 				<p:layoutUnit position="west" resizable="false" size="400"
@@ -26,20 +27,33 @@
 				<p:layoutUnit position="center" styleClass="custom-ui-layout-unit" header="Detalles">
 					<h:panelGrid id="panelGrid">
 						<ul class="planList">
-							<ui:fragment value="" var="">
-								<li><span class="custom-label">Nombre:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Edad:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Raza:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Sexo:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Tamaño:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Esterilizado:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Entidad:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Comentarios:</span> Lorem ipsum</li>								
+							<ui:fragment>
+								<li><span class="custom-label">Nombre:</span> #{animalController.animal.nombre}</li>
+								<li><span class="custom-label">Edad:</span> #{animalController.animal.edad}</li>
+								<li><span class="custom-label">Raza:</span> #{animalController.animal.raza.nombre}</li>
+								
+								<f:verbatim rendered="#{animalController.animal.sexo}">
+									<li><span class="custom-label">Sexo:</span> Macho</li>
+								</f:verbatim>
+								<f:verbatim rendered="#{!animalController.animal.sexo}">
+									<li><span class="custom-label">Sexo:</span> Hembra</li>
+								</f:verbatim>
+								
+								<li><span class="custom-label">Tamaño:</span> #{animalController.animal.tamano}</li>
+								
+								<f:verbatim rendered="#{animalController.animal.fertilidad}">
+									<li><span class="custom-label">Esterilizado:</span> Sí</li>									
+								</f:verbatim>
+								<f:verbatim rendered="#{!animalController.animal.fertilidad}">
+									<li><span class="custom-label">Esterilizado:</span> No</li>
+								</f:verbatim>
+								
+								<li><span class="custom-label">Entidad:</span> #{animalController.animal.entidad.nombre}</li>																
 							</ui:fragment>
 						</ul>
 						<br />
 						<p:outputLabel styleClass="custom-label" value="Comentarios2:" />
-						<p class="custom-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis mauris sed massa placerat venenatis vitae venenatis ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ac mi lorem. Sed iaculis aliquam dolor, viverra suscipit leo</p>
+						<p class="custom-justify">#{animalController.animal.comentario}</p>
 					</h:panelGrid>
 			        			        
 			    </p:layoutUnit>
@@ -50,16 +64,28 @@
 				    <p:accordionPanel activeIndex="">
 				        <p:tab title="Apadrinar">
 				            <h:panelGrid columns="1" cellpadding="10">				                
-				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Giro"></p:link>
-				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Consignación"></p:link>
-				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Aporte personal"></p:link>
+				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Giro" target="_blank">
+				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
+				                </p:link>
+				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Consignación" target="_blank">
+				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
+				                </p:link>
+				                <p:link outcome="/pages/animales/datosUbicacion.xhtml" value="Aporte personal" target="_blank">
+				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
+				                </p:link>
 				            </h:panelGrid>
 				        </p:tab>
 				        <p:tab title="Donar">
-				            <h:panelGrid columns="1" cellpadding="10">				                
-				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Giro"></p:link>
-				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Consignación"></p:link>
-				                <p:link outcome="/pages/animales/detallesAnimal.xhtml" value="Aporte personal"></p:link>
+				            <h:panelGrid columns="1" cellpadding="10">				            				                
+				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Giro" target="_blank">
+				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
+				                </p:link>
+				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Consignación" target="_blank">
+				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
+				                </p:link>
+				                <p:link outcome="/pages/animales/datosUbicacion.xhtml" value="Aporte personal" target="_blank">
+				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
+				                </p:link>
 				            </h:panelGrid>
 				        </p:tab>			        			        
 				    </p:accordionPanel>	    
@@ -70,7 +96,7 @@
 					    onmouseout="$(this).removeClass('ui-state-hover')"
 					    onmousedown="$(this).addClass('ui-state-active')"
 					    onmouseup="$(this).removeClass('ui-state-active')"
-					    onclick="urlAdoptar()"
+					    onclick="urlAdoptar(#{animalController.animal.entidad.codigo})"
 						class="custom-btn-accordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" 
 						role="tab" aria-expanded="false"><span style="float: left" class="ui-icon ui-icon-triangle-1-e"></span>Adoptar
 					</h3>

@@ -62,7 +62,7 @@ public class AnimalDTO implements java.io.Serializable {
 	
 	//Corresponde al tamaño del animal, entre valores de grande, mediano y pequeño.
 	@Column(name = "NV_TAMANO")
-	private String tamano;
+	private String tamano;	
 	
 	public Long getCodigo() {
 		return codigo;
@@ -123,7 +123,5 @@ public class AnimalDTO implements java.io.Serializable {
 	}
 	public void setTamano(String tamano) {
 		this.tamano = tamano;
-	}
-	
-	
+	}	
 }

@@ -16,7 +16,6 @@ public abstract class JpaDAO<T extends Serializable> {
 	@PersistenceContext(type=PersistenceContextType.EXTENDED)
 	private EntityManager entityManager;
 	private Session session;
-
 	
 	public Session getSession() {		
 		return session;

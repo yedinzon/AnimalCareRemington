@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Bùsqueda</title>
+</h:head>
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<!-- Recibir parámetro -->
+			<f:metadata>
+				<f:viewParam name="codigo" value="#{cuentaBancariaController.codigoEntidad}" />
+				<f:event listener="#{cuentaBancariaController.cargarCuentasEntidad}" type="preRenderView"></f:event>
+			</f:metadata>
+
+			<p:layout fullPage="true">			
+
+				<p:layoutUnit position="center" styleClass="custom-ui-layout-unit" header="Datos para consignación bancaria">
+					<h:panelGrid id="panelGrid">
+					
+						<ui:repeat value="#{cuentaBancariaController.listaCuentasBancarias}" var="cuenta">
+							<ul class="planList">
+								<ui:fragment>
+									<h3>#{cuenta.entidad.nombre}</h3>
+									<li><span class="custom-label">Número de cuenta:</span> #{cuenta.numeroCuenta}</li>
+									<li><span class="custom-label">Tipo de cuenta:</span> #{cuenta.tipo}</li>
+									<li><span class="custom-label">Titula de la cuenta:</span> #{cuenta.nombreTitular}</li>																								
+								</ui:fragment>
+							</ul>
+						</ui:repeat>
+												
+					</h:panelGrid>
+			        			        
+			    </p:layoutUnit>
+			   
+			</p:layout>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

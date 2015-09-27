@@ -6,40 +6,41 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
 
-import co.org.animalcare.modelo.negocio.AnimalService;
 import co.org.animalcare.modelo.dto.AnimalDTO;
 import co.org.animalcare.modelo.dto.EntidadDTO;
 import co.org.animalcare.modelo.dto.RazaDTO;
+import co.org.animalcare.modelo.negocio.AnimalService;
 
 @Controller
-@ManagedBean(name="animalController")
+@ManagedBean(name = "animalController")
 public class AnimalController implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@ManagedProperty(value="#{animalService}")
-    private AnimalService animalService;
-  
-    private List<AnimalDTO> listaAnimales;
-    private AnimalDTO animal;
-    private Long codigo;
-    private String comentario;
-    private String edad;
-    private EntidadDTO entidad;
-    private String estado;
-    private boolean fertilidad;
-    private String nombre;
-    private RazaDTO raza;
-    private boolean sexo;
-    private String tamano;
-	
+
+	@ManagedProperty(value = "#{animalService}")
+	private AnimalService animalService;
+
+	private List<AnimalDTO> listaAnimales;
+	private AnimalDTO animal;
+	private Long codigo;
+	private String comentario;
+	private String edad;
+	private EntidadDTO entidad;
+	private String estado;
+	private boolean fertilidad;
+	private String nombre;
+	private RazaDTO raza;
+	private boolean sexo;
+	private String tamano;	
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -147,12 +148,13 @@ public class AnimalController implements Serializable {
 	}
 
 	public void eliminarAnimal(ActionEvent event) {
-		Long idAnimal = (Long)event.getComponent().getAttributes().get("idAnimal");
+		Long idAnimal = (Long) event.getComponent().getAttributes()
+				.get("idAnimal");
 		animalService.eliminar(idAnimal);
 	}
 
 	public void guardarAnimal(ActionEvent event) {
-		
+
 		AnimalDTO a = new AnimalDTO();
 		a.setCodigo(codigo);
 		a.setComentario(comentario);
@@ -165,6 +167,17 @@ public class AnimalController implements Serializable {
 		a.setSexo(sexo);
 		a.setTamano(tamano);
 		animalService.guardar(a);
-	}	
+	}
+
+	/**
+	 * Cargar entidad/variable animal al momento de recibir parámetro en algunas
+	 * páginas
+	 */
+	public void cargarAnimal() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		if (!facesContext.isPostback() && !facesContext.isValidationFailed()) {
+			animal = animalService.consultar(codigo);
+		}
+	}
 
 }

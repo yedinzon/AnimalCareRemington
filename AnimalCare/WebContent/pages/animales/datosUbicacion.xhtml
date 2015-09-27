@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Bùsqueda</title>
+</h:head>
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<!-- Recibir parámetro -->
+			<f:metadata>
+				<f:viewParam name="codigo" value="#{entidadController.codigo}" />
+			</f:metadata>
+
+			<p:layout fullPage="true">			
+
+				<p:layoutUnit position="center" styleClass="custom-ui-layout-unit" header="Datos de ubicación">
+					<h:panelGrid id="panelGrid">
+						<ul class="planList">
+							<ui:fragment value="" var="">
+								<li><span class="custom-label">Nombre de la entidad:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Ciudad - Departamento:</span> Lorem - ipsum</li>
+								<li><span class="custom-label">Dirección:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Teléfono:</span> Lorem ipsum</li>
+								<li><span class="custom-label">Contacto:</span> Lorem ipsum</li>															
+							</ui:fragment>
+						</ul>						
+					</h:panelGrid>
+			        			        
+			    </p:layoutUnit>
+			   
+			</p:layout>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
