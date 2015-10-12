@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Búsqueda</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<p:layout style="width:auto;height:auto;">
+				<p:layoutUnit position="west" resizable="false" size="300"
+					minSize="300">
+					<p:layout style="width:auto;height:auto;">
+						<p:layoutUnit position="north" resizable="false" size="200"
+							minSize="200" header="Entidades" style="border:0">
+							<p:orderList value="#{categoriaController.listaCategorias}"
+								var="categoria" controlsLocation="none"
+								itemLabel="#{categoria.nombre}" itemValue="#{categoria.codigo}" />
+						</p:layoutUnit>
+
+						<p:layoutUnit position="center" header="Ubicaciones">
+							<p:orderList value="#{ciudadController.listaCiudades}"
+								var="ciudad" controlsLocation="none"
+								itemLabel="#{ciudad.nombre}" itemValue="#{ciudad.codigo}" />
+						</p:layoutUnit>
+					</p:layout>
+				</p:layoutUnit>
+
+				<p:layoutUnit position="center">
+					<!-- http://www.primefaces.org/showcase/ui/data/dataGrid.xhtml -->
+
+					<!-- DataGrid para listar resultados de búsqueda comienza -->
+					<h:form id="form">
+						<p:dataGrid var="entidad" value="#{entidadController.listaEntidades}" columns="3"
+							layout="grid" rows="6" paginator="true" id="resultadoAnimal"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="6,12,16">
+
+							<f:facet name="header">
+					            Resultados
+					        </f:facet>
+
+							<p:panel header="#{entidad.nombre}" style="text-align:center">
+								<h:panelGrid columns="1" style="width:100%">
+									<p:graphicImage value="/images/index/New1.jpg" width="80%" />
+
+									<h:outputText value="#{entidad.nombre}" />
+									
+									<p:link outcome="/pages/entidades/detallesEntidad.xhtml" value="Ver detalles">
+						    			<f:param name="codigo" value="#{entidad.codigo}" />
+									</p:link>
+									
+								</h:panelGrid>
+							</p:panel>
+
+						</p:dataGrid>
+						
+					</h:form>
+					<!-- DataGrid para listar resultados de búsqueda termina -->
+
+				</p:layoutUnit>
+
+			</p:layout>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

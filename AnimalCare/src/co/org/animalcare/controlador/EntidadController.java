@@ -8,6 +8,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.springframework.stereotype.Controller;
@@ -235,6 +236,17 @@ public class EntidadController implements Serializable {
 		this.clave = null;
 		this.codigoCategoria = null;
 		this.codigoCiudad = null;
+	}
+	
+	/**
+	 * Cargar entidad/variable animal al momento de recibir parámetro en algunas
+	 * páginas
+	 */
+	public void cargarEntidad() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		if (!facesContext.isPostback() && !facesContext.isValidationFailed()) {
+			entidad = entidadService.consultar(codigo);
+		}
 	}
 
 }

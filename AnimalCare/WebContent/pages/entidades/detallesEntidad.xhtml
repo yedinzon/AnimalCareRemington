@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Búsqueda</title>
+</h:head>
+<h:body>
+	<ui:composition template="/pages/shared/template.xhtml">
+		<ui:define name="content">
+			<!-- Recibir parámetro -->
+			<f:metadata>
+				<f:viewParam name="codigo" value="#{entidadController.codigo}" />				
+				<f:event listener="#{entidadController.cargarEntidad}" type="preRenderView"></f:event>
+			</f:metadata>			
+
+			<p:layout fullPage="true">
+				<p:layoutUnit position="west" resizable="false" size="400"
+					minSize="400" styleClass="custom-ui-layout-unit">
+			        <p:graphicImage value="/images/index/New1.jpg" width="100%" />
+			    </p:layoutUnit>
+
+				<p:layoutUnit position="center" styleClass="custom-ui-layout-unit" header="Detalles">
+					<h:panelGrid id="panelGrid">
+						<ul class="planList">
+							<ui:fragment>
+								<li><span class="custom-label">Nombre:</span> #{entidadController.entidad.nombre}</li>
+								<li><span class="custom-label">Ciudad:</span> #{entidadController.entidad.ciudad.nombre}</li>
+								<li><span class="custom-label">Dirección:</span> #{entidadController.entidad.direccion}</li>
+								<li><span class="custom-label">Categoría:</span> #{entidadController.entidad.categoria.nombre}</li>
+								<li><span class="custom-label">Nombre contacto:</span> #{entidadController.entidad.nombreContacto} #{entidadController.entidad.apellidoContacto}</li>
+								<li><span class="custom-label">Teléfono:</span> #{entidadController.entidad.telefono}</li>
+								<li><span class="custom-label">Email:</span> #{entidadController.entidad.email}</li>
+							</ui:fragment>
+						</ul>					
+					</h:panelGrid>
+			        			        
+			    </p:layoutUnit>
+			    <p:layoutUnit position="east" resizable="false" size="300"
+					minSize="100" styleClass="custom-ui-layout-unit">
+			        
+			        <!-- Acordeón con las formas de donación -->			        
+				    <p:accordionPanel activeIndex="">				        
+				        <p:tab title="Donar">
+				            <h:panelGrid columns="1" cellpadding="10">				            				                
+				                <p:link outcome="/pages/entidades/datosConsignacion.xhtml" value="Giro" target="_blank">
+				                	<f:param name="codigo" value="#{entidadController.entidad.codigo}" />
+				                </p:link>
+				                <p:link outcome="/pages/entidades/datosConsignacion.xhtml" value="Consignación" target="_blank">
+				                	<f:param name="codigo" value="#{entidadController.entidad.codigo}" />
+				                </p:link>
+				                <p:link outcome="/pages/entidades/datosUbicacion.xhtml" value="Aporte personal" target="_blank">
+				                	<f:param name="codigo" value="#{entidadController.entidad.codigo}" />
+				                </p:link>
+				            </h:panelGrid>
+				        </p:tab>			        			        
+				    </p:accordionPanel>	 
+				    	    
+    				<!-- Acordeón con las formas de donación -->
+			        
+			    </p:layoutUnit>
+			</p:layout>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

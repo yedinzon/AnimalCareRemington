@@ -52,7 +52,7 @@
 							</ui:fragment>
 						</ul>
 						<br />
-						<p:outputLabel styleClass="custom-label" value="Comentarios2:" />
+						<p:outputLabel styleClass="custom-label" value="Comentarios:" />
 						<p class="custom-justify">#{animalController.animal.comentario}</p>
 					</h:panelGrid>
 			        			        
@@ -64,26 +64,26 @@
 				    <p:accordionPanel activeIndex="">
 				        <p:tab title="Apadrinar">
 				            <h:panelGrid columns="1" cellpadding="10">				                
-				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Giro" target="_blank">
+				                <p:link outcome="/pages/entidades/datosConsignacion.xhtml" value="Giro" target="_blank">
 				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
 				                </p:link>
-				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Consignación" target="_blank">
+				                <p:link outcome="/pages/entidades/datosConsignacion.xhtml" value="Consignación" target="_blank">
 				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
 				                </p:link>
-				                <p:link outcome="/pages/animales/datosUbicacion.xhtml" value="Aporte personal" target="_blank">
+				                <p:link outcome="/pages/entidades/datosUbicacion.xhtml" value="Aporte personal" target="_blank">
 				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
 				                </p:link>
 				            </h:panelGrid>
 				        </p:tab>
 				        <p:tab title="Donar">
 				            <h:panelGrid columns="1" cellpadding="10">				            				                
-				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Giro" target="_blank">
+				                <p:link outcome="/pages/entidades/datosConsignacion.xhtml" value="Giro" target="_blank">
 				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
 				                </p:link>
-				                <p:link outcome="/pages/animales/datosConsignacion.xhtml" value="Consignación" target="_blank">
+				                <p:link outcome="/pages/entidades/datosConsignacion.xhtml" value="Consignación" target="_blank">
 				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
 				                </p:link>
-				                <p:link outcome="/pages/animales/datosUbicacion.xhtml" value="Aporte personal" target="_blank">
+				                <p:link outcome="/pages/entidades/datosUbicacion.xhtml" value="Aporte personal" target="_blank">
 				                	<f:param name="codigo" value="#{animalController.animal.entidad.codigo}" />
 				                </p:link>
 				            </h:panelGrid>
