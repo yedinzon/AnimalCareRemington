@@ -6,6 +6,8 @@ package co.org.animalcare.modelo.dto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,12 +28,14 @@ public class CuentaBancariaDTO implements java.io.Serializable {
 	@Column(name = "NM_CODIGO")
 	private Long codigo;
 	
-	//Corresponde al código de la entidad al que se asocia la cuenta
-	@Column(name = "NM_CODIGO_ENTIDAD")
+	//Corresponde al código de la entidad al que se asocia la cuenta	
+	@ManyToOne
+	@JoinColumn(name = "NM_CODIGO_ENTIDAD")
 	private EntidadDTO entidad;
 	
 	//Corresponde al código del banco donde la entidad tenga la cuenta
-	@Column(name = "NM_CODIGO_BANCO")
+	@ManyToOne
+	@JoinColumn(name = "NM_CODIGO_BANCO")
 	private BancoDTO banco;
 	
 	//Corresponde al tipo de cuenta. Como ahorros o corriente

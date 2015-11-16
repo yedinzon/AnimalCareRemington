@@ -3,9 +3,12 @@
  */
 package co.org.animalcare.modelo.dto;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,6 +33,9 @@ public class BancoDTO implements java.io.Serializable {
 	@Column(name = "NV_NOMBRE")
 	private String nombre;
 	
+	@OneToMany(mappedBy="banco")
+	private List<CuentaBancariaDTO> listaCuentasBancarias;
+	
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -41,5 +47,12 @@ public class BancoDTO implements java.io.Serializable {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public List<CuentaBancariaDTO> getListaCuentasBancarias() {
+		return listaCuentasBancarias;
+	}
+	public void setListaCuentasBancarias(
+			List<CuentaBancariaDTO> listaCuentasBancarias) {
+		this.listaCuentasBancarias = listaCuentasBancarias;
 	}
 }

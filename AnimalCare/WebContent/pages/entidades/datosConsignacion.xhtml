@@ -23,7 +23,7 @@
 				<p:layoutUnit position="center" styleClass="custom-ui-layout-unit" header="Datos para consignación bancaria">
 					<h:panelGrid id="panelGrid">
 					
-						<ui:repeat value="#{cuentaBancariaController.listaCuentasBancarias}" var="cuenta">
+						<ui:repeat value="#{cuentaBancariaController.listaCuentasBancariasEntidad}" var="cuenta">
 							<ul class="planList">
 								<ui:fragment>
 									<h3>#{cuenta.entidad.nombre}</h3>

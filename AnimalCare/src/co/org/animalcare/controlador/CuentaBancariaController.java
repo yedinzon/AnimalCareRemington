@@ -29,6 +29,7 @@ public class CuentaBancariaController implements Serializable {
     private CuentaBancariaService cuentaBancariaService;
   
     private List<CuentaBancariaDTO> listaCuentasBancarias;
+    private List<CuentaBancariaDTO> listaCuentasBancariasEntidad;
     private CuentaBancariaDTO cuentaBancaria =new CuentaBancariaDTO();    
     private Long codigo;
     private EntidadDTO entidad;
@@ -119,6 +120,15 @@ public class CuentaBancariaController implements Serializable {
 
 	public void setCodigoEntidad(Long codigoEntidad) {
 		this.codigoEntidad = codigoEntidad;
+	}	
+
+	public List<CuentaBancariaDTO> getListaCuentasBancariasEntidad() {
+		return listaCuentasBancariasEntidad;
+	}
+
+	public void setListaCuentasBancariasEntidad(
+			List<CuentaBancariaDTO> listaCuentasBancariasEntidad) {
+		this.listaCuentasBancariasEntidad = listaCuentasBancariasEntidad;
 	}
 
 	public void eliminarCuentaBancaria(ActionEvent event) {
@@ -141,7 +151,7 @@ public class CuentaBancariaController implements Serializable {
 	public void cargarCuentasEntidad() {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		if (!facesContext.isPostback() && !facesContext.isValidationFailed()) {
-			listaCuentasBancarias = cuentaBancariaService.listarPorEntidad(codigoEntidad);
+			listaCuentasBancariasEntidad = cuentaBancariaService.listarPorEntidad(codigoEntidad);
 		}
 	}
 

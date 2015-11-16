@@ -15,6 +15,7 @@
 			<!-- Recibir parámetro -->
 			<f:metadata>
 				<f:viewParam name="codigo" value="#{entidadController.codigo}" />
+				<f:event listener="#{entidadController.cargarEntidad}" type="preRenderView"></f:event>
 			</f:metadata>
 
 			<p:layout fullPage="true">			
@@ -23,11 +24,11 @@
 					<h:panelGrid id="panelGrid">
 						<ul class="planList">
 							<ui:fragment value="" var="">
-								<li><span class="custom-label">Nombre de la entidad:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Ciudad - Departamento:</span> Lorem - ipsum</li>
-								<li><span class="custom-label">Dirección:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Teléfono:</span> Lorem ipsum</li>
-								<li><span class="custom-label">Contacto:</span> Lorem ipsum</li>															
+								<li><span class="custom-label">Nombre de la entidad:</span> #{entidadController.entidad.nombre}</li>
+								<li><span class="custom-label">Ciudad - Departamento:</span> #{entidadController.entidad.ciudad.nombre} - #{entidadController.entidad.ciudad.departamento.nombre}</li>
+								<li><span class="custom-label">Dirección:</span> #{entidadController.entidad.direccion}</li>
+								<li><span class="custom-label">Teléfono:</span> #{entidadController.entidad.telefono}</li>
+								<li><span class="custom-label">Contacto:</span> #{entidadController.entidad.nombreContacto}</li>															
 							</ui:fragment>
 						</ul>						
 					</h:panelGrid>

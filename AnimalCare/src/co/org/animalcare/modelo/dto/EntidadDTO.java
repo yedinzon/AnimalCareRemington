@@ -87,6 +87,9 @@ public class EntidadDTO implements java.io.Serializable {
 	@OneToMany(mappedBy="entidad")
 	private List<AnimalDTO> listaAnimales;
 	
+	@OneToMany(mappedBy="entidad")
+	private List<CuentaBancariaDTO> listaCuentasBancarias;
+	
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -177,5 +180,11 @@ public class EntidadDTO implements java.io.Serializable {
 	public void setCodigoCategoria(Long codigoCategoria) {
 		this.codigoCategoria = codigoCategoria;		
 	}
-	
+	public List<CuentaBancariaDTO> getListaCuentasBancarias() {
+		return listaCuentasBancarias;
+	}
+	public void setListaCuentasBancarias(
+			List<CuentaBancariaDTO> listaCuentasBancarias) {
+		this.listaCuentasBancarias = listaCuentasBancarias;
+	}
 }
